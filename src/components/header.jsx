@@ -16,8 +16,8 @@ export default function Header() {
     return (
         <header >
             <Link className="logo" to="/">
-                {/* <img src="/src/logo-r.png" alt="" /> */}
-                BookWave
+                <img src="/logo.png" alt="" />
+                {/* BookWave */}
             </Link>
 
             <form className="search-bar">
@@ -34,7 +34,7 @@ export default function Header() {
                 </span>
             </form>
             <nav>
-                <img src="/src/menu.png" alt="" />
+                <img src="/menu.png" alt="" />
                 <li><Link to="/" className="li">Home</Link></li>
                 <li><Link to="/toRead" className="li">Readpile</Link></li>
                 <li><Link to="https://mhdwali.netlify.app" className="li">Completed</Link></li>
