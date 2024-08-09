@@ -53,7 +53,7 @@ body {
 #category {
   margin: 10px 0;
   /* margin-left: 50px; */
-  left: -100%;
+  left: 3%;
   transition: 0.5s;
   color: rgb(223, 219, 219);
   margin-left: 50px;
