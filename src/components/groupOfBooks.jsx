@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import '/src/App.css';
 
 const GroupOfBooks = ({ category, books, bookCovers, isResult, query, setCurrBook }) => {
-    const [left, setLeft] = useState(0);
+    const [left, setLeft] = useState(7);
     const categoryRef = useRef(null);
 
     useEffect(() => {
@@ -24,7 +24,9 @@ const GroupOfBooks = ({ category, books, bookCovers, isResult, query, setCurrBoo
     return (
         <div className="category" key={category}>
             {!isResult ? (
-                <Link to={`/search/subject:${category}`} id="category" ref={categoryRef} >{category}</Link>
+                <Link to={`/search/subject:${category}`} id="category" ref={categoryRef} style = {{
+                    marginLeft: "20px"
+                }}>{category}</Link>
             ) : (
                 <span className="results">Search Results for "{query}"</span>
             )}

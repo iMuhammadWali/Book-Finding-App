@@ -52,15 +52,11 @@ body {
 }
 #category {
   margin: 10px 0;
-  /* margin-left: 50px; */
-  left: 3%;
   transition: 0.5s;
   color: rgb(223, 219, 219);
-  margin-left: 50px;
   height: 60px;
-  width: 100px;
+  width: 120px;
   text-decoration: none;
-  /* font-family: Ravie; */
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: italic;
@@ -184,11 +180,9 @@ body {
     width: 110px;  
   }
   #category{
-    margin-left: 44px;  
     font-size: 20px;
     height: 37px;
     margin-top: 20px;
-    /* font-size: 28px; */
     margin-bottom: 14px;
   }
 }

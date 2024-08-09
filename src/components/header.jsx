@@ -16,8 +16,8 @@ export default function Header() {
     return (
         <header >
             <Link className="logo" to="/">
-                <img src="/src/logo-r.png" alt="" />
-                {/* BookWave */}
+                {/* <img src="/src/logo-r.png" alt="" /> */}
+                BookWave
             </Link>
 
             <form className="search-bar">
