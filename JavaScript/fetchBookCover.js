@@ -27,6 +27,5 @@ export const fetchBookCover = async (book) => {
         book.cover = googleBooksThumbnail;
         return;
     }
-    // book.cover=googleBooksThumbnail;
     book.cover = "/defaultCover.jpg";
 };
