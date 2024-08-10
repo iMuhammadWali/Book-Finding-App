@@ -3,6 +3,7 @@ import { fetchBookCover } from '../../JavaScript/fetchBookCover';
 import { useParams } from 'react-router-dom'
 import "./componentStyles/bookDetails.css"
 // import "/src/App.css"
+import { useLocation } from 'react-router-dom';
 
 function BookInfo({ book }) {
     return (
@@ -48,7 +49,12 @@ function BookDetails({ book }) {
     const [books, setBooks] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const { title } = useParams();
+    const { pathname } = useLocation();
 
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+  
     console.log(book, 'is asked for');
 
     // const fetchBookAgain = async () => {

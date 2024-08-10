@@ -3,6 +3,7 @@ import { fetchBookCover } from '../../JavaScript/fetchBookCover';
 import { MoonLoader } from 'react-spinners';
 import '/src/App.css'
 import GroupOfBooks from "./groupOfBooks";
+import { ScrollRestoration } from 'react-router-dom';
 
 
 export default function DefaultBooks({ setCurrBook }) {
@@ -77,6 +78,7 @@ export default function DefaultBooks({ setCurrBook }) {
           // currBook={currBook}
         />
       )}
+      {/* <ScrollRestoration/> */}
     </div>
   );
 }
