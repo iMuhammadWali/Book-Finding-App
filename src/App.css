@@ -110,7 +110,6 @@ body {
 }
 
 .book img, .cover {
-  /* width: 130px; */
   width: 140px;
   min-height: 180px;
   height: 220px;
@@ -172,12 +171,12 @@ body {
   }
   .book{
     height: 300px;
-    width: 110px;
+    width: 130px;
 
   }
   .book img{
     height: 200px;
-    width: 110px;  
+    width: 130px;  
   }
   #category{
     font-size: 20px;
