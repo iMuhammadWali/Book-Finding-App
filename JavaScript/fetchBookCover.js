@@ -22,7 +22,7 @@ export const fetchBookCover = async (book) => {
     //         return;
     //     }
     // }
-    const googleBooksThumbnail = book.volumeInfo.imageLinks?.thumbnail;
+    const googleBooksThumbnail = book.volumeInfo?.imageLinks?.thumbnail;
     if (googleBooksThumbnail) {
         book.cover = googleBooksThumbnail;
         return;
