@@ -21,7 +21,8 @@ export default function Header() {
                 // logo.style.width = '80px';
                 logoImg.style.display = 'none';
             }
-            
+        } else {
+            navigate(`/search/${query}`);
         }
     }
 
