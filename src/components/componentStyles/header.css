@@ -12,9 +12,9 @@ header {
     background-color: #222120;
 }
 
-.logo {
+/* .logo {
     font-family: 'Racing Sans One', sans-serif;
-    height: auto;
+    height: 80px;
     font-size: 35px;
     color: #ffffff;
     letter-spacing: 2px;
@@ -22,29 +22,27 @@ header {
     font-style: italic;
     text-decoration: none;
     padding-left: 30px;
-}
+} */
 
 .logo {
     height: 80px;
-    display: flex;
-    align-items: center;
+    /* display: flex;
+    align-items: center; */
+    width: 184px;
 }
 
 .logo img {
     height: 80px;
-    width: auto;
-    padding: 0;
-    margin-top: -14px;
+    width: 173px;
+    margin-left: 10px;
 }
 
 .search-bar {
     display: flex;
-    position: relative;
     height: 40px;
     width: 50%;
     margin-left: 60px;
 }
-
 input {
     height: 40px;
     width: 80%;
@@ -54,8 +52,7 @@ input {
     border: none;
     background-color: #2b2928;
     transition: box-shadow 0.3s ease-in-out;
-    color: #9e9b99;
-    ;
+    color: #9e9b99;;
     margin-right: 0;
 }
 
@@ -63,7 +60,6 @@ input:focus {
     border: none;
     outline: none;
     color: #9e9b99;
-    ;
 }
 
 .material-symbols-outlined {
@@ -108,7 +104,6 @@ nav li {
 
 @media(max-width:970px) {
     .search-bar {
-        /* margin-left: 30px; */
         width: 70%;
     }
 
@@ -135,9 +130,14 @@ nav li {
 
 @media(max-width:645px) {
 
+    .logo{
+        width: 160px;
+    }
     .logo img {
         height: 65px;
-        margin-left: -20px;
+        margin-left: 19px;
+        margin-top: 5px;
+        width:141px
     }
 
     nav {
@@ -150,35 +150,36 @@ nav li {
     }
 }
 
-@media(max-width:550px) {
-
-    .logo img {
-        height: 65px;
-        margin-left: -20px;
-    }
-
-    .search-bar {
-        margin-left: 40px;
-        width: 50%;
-    }
-}
-
 @media(max-width:455px) {
 
     input {
         display: none;
+        transition: 0.5s;
+        width: 230px;
+    }
+    .search-bar {
+        width: 200px;
+        /* margin-left: 70px; */
+        justify-content: right;
+        margin-left: 0.7px;
+        /* margin-right: 100px; */
     }
 
-    .search-bar {
-        width: 20%;
-        margin-left: 50px;
-        justify-content: right;
-    }
     .material-symbols-outlined {
         background-color: transparent;
     }
-    nav img{
-        height: 36px;
-        width: 36px;
+
+    nav img {
+        height: 32px;
+        width: 32px;
+    }
+}
+@media (max-width:400px){
+    .search-bar {
+        margin-left: 60px;
+    }
+    nav{
+        width: 50px;
+        margin-right: 20px;
     }
 }

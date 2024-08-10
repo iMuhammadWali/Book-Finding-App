@@ -21,12 +21,11 @@ const GroupOfBooks = ({ category, books, bookCovers, isResult, query, setCurrBoo
             categoryRef.current.style.marginLeft = `${left}px`;
         }
     }, [left]);
+    
     return (
         <div className="category" key={category}>
             {!isResult ? (
-                <Link to={`/search/subject:${category}`} id="category" ref={categoryRef} style = {{
-                    marginLeft: "20px"
-                }}>{category}</Link>
+                <Link to={`/search/subject:${category}`} id="category" ref={categoryRef} >{category}</Link>
             ) : (
                 <span className="results">Search Results for "{query}"</span>
             )}
