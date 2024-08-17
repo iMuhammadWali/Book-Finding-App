@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLocation } from 'react';
 import { fetchBookCover } from '../../JavaScript/fetchBookCover';
 import { MoonLoader } from 'react-spinners';
 import '/src/App.css'
@@ -10,6 +10,10 @@ export default function DefaultBooks({ setCurrBook }) {
   const [books, setBooks] = useState([]);
   const [bookCovers, setBookCovers] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
   //I have to shuffle this object on every load
   const queries = {
     'Fantasy': 'subject:fantasy',

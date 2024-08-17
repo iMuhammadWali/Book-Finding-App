@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLocation } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { fetchBookCover } from '../../JavaScript/fetchBookCover';
 import { MoonLoader } from 'react-spinners';
@@ -12,6 +12,10 @@ export default function SearchedBooks({setCurrBook}) {
     const [books, setBooks] = useState([]);
     const [covers, setBookCovers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
     const searchBooks = async () => {
         try {
             const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40`);
