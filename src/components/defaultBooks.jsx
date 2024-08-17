@@ -1,6 +1,8 @@
-import { useState, useEffect, useLocation } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchBookCover } from '../../JavaScript/fetchBookCover';
 import { MoonLoader } from 'react-spinners';
+import { useLocation } from 'react-router-dom';
+
 import '/src/App.css'
 import GroupOfBooks from "./groupOfBooks";
 import { ScrollRestoration } from 'react-router-dom';
