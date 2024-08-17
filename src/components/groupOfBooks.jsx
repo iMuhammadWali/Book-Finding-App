@@ -5,12 +5,6 @@ import '/src/App.css';
 const GroupOfBooks = ({ category, books, isResult, query, setCurrBook }) => {
     const [left, setLeft] = useState(7);
     const categoryRef = useRef(null);
-    const { pathname } = useLocation();
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        console.log("Scrolled");
-    }, [pathname]);
 
     useEffect(() => {
         if (books.length > 0) {

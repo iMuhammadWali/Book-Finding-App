@@ -37,18 +37,15 @@ function BookInfo({ book }) {
         let showLessButton = document.querySelector(".showLess");
         let description = document.querySelector(".description");
         let text = document.querySelector(".text");
-        console.log(description.style.height);
-        console.log(text.style.height);
+       
         if (text.scrollHeight > text.clientHeight) {
             readMoreButton.style.display = "block"; // Show "Read More" button
         } else {
             readMoreButton.style.display = "none"; // Hide "Read More" button if not needed
         }
-    
 
         readMoreButton.addEventListener("click", () => {
             description.style.height = "auto";
-            // span.style.marginTop = "15px"; 
             showLessButton.style.display = "block";
             description.style.maxHeight = "none";
             text.style.maxHeight = "none";
@@ -60,7 +57,7 @@ function BookInfo({ book }) {
             text.style.maxHeight = "181px";
             showLessButton.style.display = "none";
             readMoreButton.style.display = "block";
-        }); 
+        });
     })
 
     return (
@@ -100,36 +97,43 @@ function BookInfo({ book }) {
 }
 
 function BookDetails({ book }) {
-    const [bookAlt, setBookAlt] = useState(null);
+    const [currentBook, setCurrentBook] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const { title } = useParams();
     const { pathname } = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [pathname]);
+    // let currentBook = book;
 
     useEffect(() => {
         // If no book is passed as a prop, fetch it
-        if (!book) {
+        if (!book || Object.keys(book).length === 0) {
+            console.log("Haahaa")
             const fetchBook = async () => {
                 setIsLoading(true);
                 try {
                     const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=intitle:${title}&maxResults=1`);
                     const data = await response.json();
                     if (data.items && data.items.length > 0) {
-                        setBookAlt(data.items[0]);
+                        // setBookAlt(data.items[0]);
+                        setIsLoading(false);
+                        setCurrentBook(data.items[0])
+                        // currentBook = 
+                        console.log("currentBook is:", currentBook);
+
                     }
                 } catch (error) {
                     console.error('Failed to fetch book details:', error);
-                } finally {
-                    setIsLoading(false);
                 }
             };
             fetchBook();
         }
+        else {
+            setCurrentBook(book)
+        }
     }, [title, book]);
 
-    const currentBook = book || bookAlt;
 
     return (
         <div className="main-cont" style={{ color: "white" }}>
@@ -140,7 +144,7 @@ function BookDetails({ book }) {
                     <div className="book-container">
                         <div className="left">
                             <div className="image">
-                                <img src={currentBook?.volumeInfo?.imageLinks?.thumbnail || "/src/defaultCover.jpg"} alt="" />
+                                <img src={currentBook.volumeInfo?.imageLinks?.thumbnail || "/defaultCover.jpg"} alt="" />
                             </div>
                         </div>
                         <BookInfo book={currentBook} />
