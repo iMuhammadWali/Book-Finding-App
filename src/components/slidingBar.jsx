@@ -29,7 +29,7 @@ function SlidingBar() {
 
             </div>
             <div className="bar" style={{
-                position: "fixed", height: "100%", width: "150px", backgroundColor: "white", zIndex: 20000, top: "0",
+                position: "fixed", height: "120%", width: "150px", backgroundColor: "white", zIndex: 20000, top: "0",
                 left: "-100%",
                 transition: "0.3s",
                 backgroundColor: "#222120"
