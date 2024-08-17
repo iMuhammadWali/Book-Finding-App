@@ -37,6 +37,15 @@ function BookInfo({ book }) {
         let showLessButton = document.querySelector(".showLess");
         let description = document.querySelector(".description");
         let text = document.querySelector(".text");
+        console.log(description.style.height);
+        console.log(text.style.height);
+        if (text.scrollHeight > text.clientHeight) {
+            readMoreButton.style.display = "block"; // Show "Read More" button
+        } else {
+            readMoreButton.style.display = "none"; // Hide "Read More" button if not needed
+        }
+    
+
         readMoreButton.addEventListener("click", () => {
             description.style.height = "auto";
             // span.style.marginTop = "15px"; 
@@ -48,7 +57,7 @@ function BookInfo({ book }) {
         showLessButton.addEventListener("click", () => {
             console.log("Worked");
             description.style.maxHeight = "240px";
-            text.style.maxHeight = "200px";
+            text.style.maxHeight = "181px";
             showLessButton.style.display = "none";
             readMoreButton.style.display = "block";
         }); 
