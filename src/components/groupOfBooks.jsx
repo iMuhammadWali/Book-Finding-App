@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import React, { useEffect, useState, useRef } from 'react';
 import '/src/App.css';
 
-const GroupOfBooks = ({ category, books, bookCovers, isResult, query, setCurrBook }) => {
+const GroupOfBooks = ({ category, books, isResult, query, setCurrBook }) => {
     const [left, setLeft] = useState(7);
     const categoryRef = useRef(null);
     const { pathname } = useLocation();
