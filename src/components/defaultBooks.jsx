@@ -15,6 +15,7 @@ export default function DefaultBooks({ setCurrBook }) {
   const { pathname } = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0);
+        console.log("Scrolled");
     }, [pathname]);
   //I have to shuffle this object on every load
   const queries = {

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useParams, useLocation } from 'react-router-dom'
 import { fetchBookCover } from '../../JavaScript/fetchBookCover';
 import { MoonLoader } from 'react-spinners';
