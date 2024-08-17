@@ -7,7 +7,7 @@ import '/src/App.css'
 import Header from './components/header'
 
 function App() {
-  const [currBook, setCurrBook] = useState({});
+  const [currBook, setCurrBook] = useState(0);
   return (
     <div>
       <BrowserRouter>

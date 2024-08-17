@@ -1,67 +1,217 @@
+.main-cont {
+    width: 100%;
+    margin-top: 160px;
+    display: flex;
+    justify-content: center;
+
+}
+
 .book-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 600px;
-    width: 800px;
+    height: auto;
+    margin-top: 0;
+    width: 80%;
+    margin-left: -50px;
+    margin-bottom: 100px;
+}
+
+.left {
+    height: 100%;
+    width: 340px;
     /* border: 1px solid white; */
-}
-
-.main-div {
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    height: 100%;
-    width: 100%;
-}
-
-.cover {
-    width: 140px;
-    min-height: 180px;
-    height: 100%;
-    width: 30%;
-    flex-grow: 1;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-left: 0;
     display: flex;
     justify-content: center;
 }
-.cover img{
-    margin-top: 50px;
-    width: 140px;
-    height: 220px;
+
+.image {
+    /* border: 1px solid white; */
+    width: 320px;
+    height: 340px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.info{
+
+.image img {
+    width: 200px;
+    height: 320px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 10px 10px 30px 10px rgb(7, 7, 7);
+}
+
+.right {
     color: white;
-    /* border: 1px solid white; */
+    /* color: #1b1918; */
     height: 100%;
     font-family: 'Inter', sans-serif;
-    font-style: italic;
-    width: 70%;
-    font-size: 16px;
+    /* font-style: italic; */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
-.bold{
-    font-weight: bold;
-    font-size: 25px;
+
+.title {
+    font-family: "Jacques Francois", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 38px;
 }
-.title{
-    margin-top: 50px;
-}
-.title, .author{
-    font-size: 20px;
-    height: 40px;
-}
-.vitals{
+
+.author {
     margin-top: 10px;
-    height: 20px;
+    margin-bottom: 10px;
+    font-family: "Courier Prime", monospace;
+    font-weight: 400;
+    /* font-style: italic; */
+    font-size: 23px;
+    /* color: rgb(221, 219, 219); */
 }
-.description{
+
+.author:hover {
+    color: white;
+}
+
+.description {
+    position: relative;
+    font-family: "LXGW WenKai Mono TC", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
     margin-top: 10px;
-    height: auto;
+    margin-bottom: 10px;
     text-align: justify;
-    /* width: 70%; */
+    width: 100%;
+    color: rgb(204, 204, 204);
+    /* border: 1px solid white; */
+    max-height: 240px;
+    /* max-height: auto; */
+    height: 240px;
+
+}
+
+.text {
+    /* border: 1px solid white; */
+    width: 100%;
+    /* height: 195px; */
+    max-height: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.readMore,
+.showLess {
+    /* position: absolute; */
+    /* bottom: 0; */
+    text-decoration: underline;
+    cursor: pointer;
+
+    margin: 20px 0;
+    /* margin-top: 10px; */
+}
+
+.showLess {
+    display: none;
+}
+
+.vitals {
+    font-family: "Courier Prime", monospace;
+    color: rgb(204, 204, 204);
+    font-size: 16px;
+}
+
+.cats {
+    width: 100%;
+    flex-wrap: wrap;
+    height: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.cat {
+    margin-top: 6px;
+    border: 1px solid white;
+    font-family: "Jacques Francois", serif;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    flex-grow: 1;
+    min-width: 47%;
+    max-width: 100%;
+}
+
+@media(max-width:850px) {
+    .title {
+        font-size: 32px;
+    }
+
+    .author {
+        font-size: 21px;
+    }
+
+    .vitals {
+        font-size: 15px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+}
+
+@media(max-width:785px) {
+    .main-cont{
+        margin-top: 120px;
+    }
+    .book-container {
+        flex-direction: column;
+        height: auto;
+        margin-left: 0;
+    }
+
+    .left {
+        width: 100%;
+        height: auto;
+    }
+
+    .right {
+        /* margin-top: 30px; */
+        width: 100%;
+    }
+    .image {
+        /* border: 1px solid white; */
+        width: 320px;
+        height: 340px;
+
+    }
+    
+    .image img {
+        width: 170px;
+        height: 260px;
+
+    }   
+}
+
+@media(max-width:440px) {
+    .title {
+        font-size: 26px;
+    }
+
+    .author {
+        font-size: 17px;
+    }
+
+    .vitals {
+        font-size: 13px;
+    }
+
+    .description {
+        font-size: 15px;
+    }
 }
