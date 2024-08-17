@@ -154,9 +154,9 @@ nav li {
 @media(max-width:455px) {
 
     input {
-        display: none;
         transition: 0.5s;
         width: 230px;
+        display: none;
     }
     .search-bar {
         width: 200px;
