@@ -119,9 +119,9 @@ function BookDetails({ book }) {
                         // setBookAlt(data.items[0]);
                         setIsLoading(false);
                         setCurrentBook(data.items[0])
-                        // currentBook = 
                         console.log("currentBook is:", currentBook);
-
+                        // currentBook = 
+                        
                     }
                 } catch (error) {
                     console.error('Failed to fetch book details:', error);
