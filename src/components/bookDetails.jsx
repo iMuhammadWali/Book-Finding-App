@@ -30,14 +30,17 @@ function addNewLineAfterSomeWords(paragraph) {
 
 function BookInfo({ book }) {
     cKey = 1;
-    addNewLineAfterSomeWords(book.volumeInfo.description);
+    
+    // Add fallback for the description
+    const description = book.volumeInfo?.description;
+    addNewLineAfterSomeWords(description);
 
     useEffect(() => {
         let readMoreButton = document.querySelector(".readMore");
         let showLessButton = document.querySelector(".showLess");
         let description = document.querySelector(".description");
         let text = document.querySelector(".text");
-       
+
         if (text.scrollHeight > text.clientHeight) {
             readMoreButton.style.display = "block"; // Show "Read More" button
         } else {
@@ -52,49 +55,56 @@ function BookInfo({ book }) {
             readMoreButton.style.display = "none";
         });
         showLessButton.addEventListener("click", () => {
-            console.log("Worked");
             description.style.maxHeight = "240px";
             text.style.maxHeight = "181px";
             showLessButton.style.display = "none";
             readMoreButton.style.display = "block";
         });
-    })
+    }, []);
 
     return (
         <div className="right">
-            <span className='title'>{book.volumeInfo?.title}</span>
+            <span className='title'>{book.volumeInfo?.title || "Title not available"}</span>
             <div className='author'>
-                {book.volumeInfo.authors.map((author, index) => (
-                    <span key={index}>
-                        {author}
-                        {index !== book.volumeInfo.authors.length - 1 && `, `}
-                    </span>
-                ))}
+                {book.volumeInfo?.authors?.length > 0 ? (
+                    book.volumeInfo.authors.map((author, index) => (
+                        <span key={index}>
+                            {author}
+                            {index !== book.volumeInfo.authors.length - 1 && `, `}
+                        </span>
+                    ))
+                ) : (
+                    <span>Author not available</span>
+                )}
             </div>
-            <span className="vitals">Published date: {book.volumeInfo.publishedDate}</span>
-            <span className="vitals">Page count: {book.volumeInfo.pageCount || "No page count available"}</span>
+            <span className="vitals">Published date: {book.volumeInfo?.publishedDate || "Date not available"}</span>
+            <span className="vitals">Page count: {book.volumeInfo?.pageCount || "No page count available"}</span>
             <div className="description">
                 <div className="text">
                     {paragraphOne} <br />
-                    <p>      {/*Used for space */}</p>{paragraphTwo}
+                    <p>{/* Used for space */}</p>{paragraphTwo}
                     <br />
                 </div>
                 <span className="readMore">Read More</span>
                 <span className="showLess">Show Less</span>
-
             </div>
             <div className="cats">
-                {book.volumeInfo.categories.map(category => (
-                    <div key={cKey++} className="cat">
-                        <Link style={{ textDecoration: "none", color: "white" }}>
-                            {category}
-                        </Link>
-                    </div>
-                ))}
+                {book.volumeInfo?.categories?.length > 0 ? (
+                    book.volumeInfo.categories.map(category => (
+                        <div key={cKey++} className="cat">
+                            <Link style={{ textDecoration: "none", color: "white" }}>
+                                {category}
+                            </Link>
+                        </div>
+                    ))
+                ) : (
+                    <span>No categories available</span>
+                )}
             </div>
         </div>
-    )
+    );
 }
+
 
 function BookDetails({ book }) {
     const [currentBook, setCurrentBook] = useState(null);
@@ -121,7 +131,6 @@ function BookDetails({ book }) {
                         setCurrentBook(data.items[0])
                         console.log("currentBook is:", currentBook);
                         // currentBook = 
-                        
                     }
                 } catch (error) {
                     console.error('Failed to fetch book details:', error);
