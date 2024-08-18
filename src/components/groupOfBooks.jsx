@@ -10,7 +10,8 @@ const GroupOfBooks = ({ category, books, isResult, query, setCurrBook }) => {
         if (books.length > 0) {
             const firstBook = document.querySelector('.book');
             if (firstBook) {
-                const leftPosition = firstBook.getBoundingClientRect().x;
+                const leftPosition = firstBook.getBoundingClientRect().x - 5;
+                console.log('left posi =', leftPosition);
                 setLeft(leftPosition);
             }
         }
