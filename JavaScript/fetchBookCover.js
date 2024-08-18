@@ -13,7 +13,6 @@ export const fetchBookCover = async (book) => {
     // const isbn = book.volumeInfo.industryIdentifiers
     //     ? book.volumeInfo.industryIdentifiers.find(id => id.type === 'ISBN_13')?.identifier : null;
 
-        
     // if (isbn) {
     //     const openLibraryUrl = `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg?default=false`;
     //     const exists = await checkImageExists(openLibraryUrl);

@@ -13,10 +13,10 @@ export default function DefaultBooks({ setCurrBook }) {
   const [bookCovers, setBookCovers] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { pathname } = useLocation();
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        console.log("Scrolled");
-    }, [pathname]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    console.log("Scrolled");
+  }, [pathname]);
   //I have to shuffle this object on every load
   const queries = {
     'Fantasy': 'subject:fantasy',
@@ -54,7 +54,9 @@ export default function DefaultBooks({ setCurrBook }) {
     });
     await Promise.all(coverPromises);
     setBookCovers(covers);
-    setIsLoading(false);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -74,18 +76,24 @@ export default function DefaultBooks({ setCurrBook }) {
 
   return (
     <div className='main-container'>
-      <span className="h1">Explore Different Genres</span>
-      {Object.keys(groupedBooks).map(category =>
-        <GroupOfBooks
-          key={category}
-          category={category}
-          books={groupedBooks[category]}
-          bookCovers={bookCovers}
-          setCurrBook={setCurrBook} // Ensure this prop is passed
-          // currBook={currBook}
-        />
+      {isLoading ? (
+        <div className="loader">
+          <MoonLoader color="#ffffff" size={30} />
+        </div>
+      ) : (
+        <>
+          <span className="h1">Explore Different Genres</span>
+          {Object.keys(groupedBooks).map(category => (
+            <GroupOfBooks
+              key={category}
+              category={category}
+              books={groupedBooks[category]}
+              bookCovers={bookCovers}
+              setCurrBook={setCurrBook} // Ensure this prop is passed
+            />
+          ))}
+        </>
       )}
-      {/* <ScrollRestoration/> */}
     </div>
-  );
+  );  
 }
