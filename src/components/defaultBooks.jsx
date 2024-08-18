@@ -1,23 +1,17 @@
 import { useState, useEffect } from 'react';
-import { fetchBookCover } from '../../JavaScript/fetchBookCover';
-import { MoonLoader } from 'react-spinners';
 import { useLocation } from 'react-router-dom';
-
 import '/src/App.css'
 import GroupOfBooks from "./groupOfBooks";
-import { ScrollRestoration } from 'react-router-dom';
-
 
 export default function DefaultBooks({ setCurrBook }) {
   const [books, setBooks] = useState([]);
-  const [bookCovers, setBookCovers] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
     console.log("Scrolled");
   }, [pathname]);
-  //I have to shuffle this object on every load
+
+  //I have to shuffle this object on every load (I have decided that i wont be doing it anymore)
   const queries = {
     'Fantasy': 'subject:fantasy',
     'Mystery': 'subject:mystery',
@@ -46,27 +40,9 @@ export default function DefaultBooks({ setCurrBook }) {
     setBooks(responses.flat());
   };
 
-  const fetchCovers = async () => {
-    const covers = {};
-    const coverPromises = books.map(async (book) => {
-      const coverUrl = await fetchBookCover(book);
-      covers[book.id] = coverUrl;
-    });
-    await Promise.all(coverPromises);
-    setBookCovers(covers);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  };
-
   useEffect(() => {
     fetchAllBooks();
-    setIsLoading(true);
   }, []);
-
-  useEffect(() => {
-    fetchCovers();
-  }, [books]);
 
   // Group books by category
   const groupedBooks = Object.keys(queries).reduce((acc, category) => {
@@ -76,24 +52,15 @@ export default function DefaultBooks({ setCurrBook }) {
 
   return (
     <div className='main-container'>
-      {isLoading ? (
-        <div className="loader">
-          <MoonLoader color="#ffffff" size={30} />
-        </div>
-      ) : (
-        <>
-          <span className="h1">Explore Different Genres</span>
-          {Object.keys(groupedBooks).map(category => (
-            <GroupOfBooks
-              key={category}
-              category={category}
-              books={groupedBooks[category]}
-              bookCovers={bookCovers}
-              setCurrBook={setCurrBook} // Ensure this prop is passed
-            />
-          ))}
-        </>
-      )}
+      <span className="h1">Explore Different Genres</span>
+      {Object.keys(groupedBooks).map(category => (
+        <GroupOfBooks
+          key={category}
+          category={category}
+          books={groupedBooks[category]}
+          setCurrBook={setCurrBook} // Ensure this prop is passed
+        />
+      ))}
     </div>
-  );  
+  );
 }

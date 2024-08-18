@@ -39,7 +39,7 @@ const GroupOfBooks = ({ category, books, isResult, query, setCurrBook }) => {
                         onClick={() => {
                             setCurrBook(book);
                         }}>
-                        <img src={book.cover} />
+                        <img src={book.volumeInfo?.imageLinks?.thumbnail || "/defaultCover.jpg"} />
                         <span id="title">{book.volumeInfo.title}</span>
                     </Link>
                 ))}
