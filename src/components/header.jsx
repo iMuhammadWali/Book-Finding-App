@@ -6,31 +6,18 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export default function Header() {
     const [query, setQuery] = useState("");
-    // const [isSlidingBar, setIsSlidingBar] = useState(false);
-    // const [isSlidingBar, setIsSlidingBar] = useState(false); // Use React state for the sliding bar
     const navigate = useNavigate();
 
-    // const handleSlidingBar = () => {
-    //     if (isSlidingBar) {
-    //         closeSlidingBar();
-    //     } else {
-    //         openSlidingBar();
-    //     }
-    //     setIsSlidingBar(!isSlidingBar); // Toggle the state
-    // };
-    // const [logoRef, setLogoRef] = useState(null);
     const handleSearchIconKeyPress = () => {
         if (window.innerWidth <= 455) {
             const logoImg = document.querySelector('.logo img');
-            // const logo = document.querySelector('.logo');
             const input = document.querySelector('input');
             if (logoImg.style.display === 'none'){
                 logoImg.style.display = 'block';
-                // logo.style.width = '160px';
                 input.style.display = 'none';
+                navigate(`/search/${query}`);
             } else {
                 input.style.display = 'block';
-                // logo.style.width = '80px';
                 logoImg.style.display = 'none';
             }
         } else {
@@ -62,7 +49,7 @@ export default function Header() {
                     search
                 </span>
             </form>
-            <nav>
+            <nav className="nav-bar">
                 <img onClick={openSlidingBar} src="/menu.png" alt="Menu" />
                 <li><Link to="/" className="li">Home</Link></li>
                 <li><Link to="/toRead" className="li">Readpile</Link></li>

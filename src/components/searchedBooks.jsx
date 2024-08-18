@@ -34,7 +34,10 @@ export default function SearchedBooks({setCurrBook}) {
         });
         await Promise.all(coverPromises);
         setBookCovers(covers);
-        setIsLoading(false);
+        setTimeout(()=> {
+
+            setIsLoading(false);
+        }, 1000);
 
     };
     useEffect(() => {
@@ -46,7 +49,7 @@ export default function SearchedBooks({setCurrBook}) {
     }, [books]);
     return (
         <div >
-            {isLoading ? (<div className="loader"><MoonLoader color="#ffffff" size={50}
+            {isLoading ? (<div className="loader"><MoonLoader color="#ffffff" size={30}
             /> </div>) : (
                 <GroupOfBooks
                 category={query}
