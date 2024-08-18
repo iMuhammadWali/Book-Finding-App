@@ -16,7 +16,8 @@ export default function Header() {
             if (logoImg.style.display === 'none') {
                 logoImg.style.display = 'block';
                 input.style.display = 'none';
-                navigate(`/search/${query}`);
+                if (query)
+                    navigate(`/search/${query}`);
             } else {
                 input.style.display = 'block';
                 logoImg.style.display = 'none';
