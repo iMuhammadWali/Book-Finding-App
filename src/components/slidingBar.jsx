@@ -22,8 +22,8 @@ function SlidingBar() {
                 left: 0,
                 width: "100%",
                 height: "120%",
-                backgroundColor: "rgba(0, 0, 0, 0)",
-                backdropFilter: "blur(1px)" ,
+                backgroundColor: "rgba(0, 0, 0, 0.2)",
+                // backdropFilter: "blur(1px)" ,
                 zIndex: 19999,
         display: "none"
 }} onClick = { closeSlidingBar } >
