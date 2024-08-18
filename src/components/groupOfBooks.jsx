@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import '/src/App.css';
 
 const GroupOfBooks = ({ category, books, isResult, query, setCurrBook }) => {
-    const [left, setLeft] = useState(7);
+    const [left, setLeft] = useState(0);
     const categoryRef = useRef(null);
 
     useEffect(() => {

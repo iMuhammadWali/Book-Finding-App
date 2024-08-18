@@ -38,6 +38,7 @@ function SlidingBar() {
                 backgroundColor: "#222120",
             }}>
                 {/* <NavBar /> */}
+                {/* I can import the navbar component here but i prefer to do this to leaen how this actually works */}
                 <div className="nav">
                     <li><Link to="/" className="link">Home</Link></li>
                     <li><Link to="/toRead" className="link">Readpile</Link></li>
