@@ -22,20 +22,21 @@ function SlidingBar() {
                 left: 0,
                 width: "100%",
                 height: "120%",
-                backgroundColor: "rgba(0, 0, 0, 0.3)",
+                backgroundColor: "rgba(0, 0, 0, 0)",
+                backdropFilter: "blur(1px)" ,
                 zIndex: 19999,
-                display: "none"
-            }} onClick={closeSlidingBar}>
+        display: "none"
+}} onClick = { closeSlidingBar } >
 
-            </div>
-            <div className="bar" style={{
-                position: "fixed", height: "120%", width: "200px", backgroundColor: "white", zIndex: 20000, top: "0",
-                left: "-100%",
-                transition: "0.3s",
-                backgroundColor: "#222120"
+            </div >
+    <div className="bar" style={{
+        position: "fixed", height: "120%", width: "200px", backgroundColor: "white", zIndex: 20000, top: "0",
+        left: "-100%",
+        transition: "0.3s",
+        backgroundColor: "#222120"
 
-            }}>
-            </div>
+    }}>
+    </div>
         </>
     )
 }
