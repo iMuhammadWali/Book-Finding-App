@@ -1,0 +1,29 @@
+.nav li {
+    width: 100%;
+    font-size: 20px;
+    height: 50px;
+    list-style: none;
+    /* border: 1px solid white; */
+    display: flex;
+    justify-content: center;
+
+    }
+.link{
+    color: white;
+    color: #ffffffd3;
+    text-decoration: none;
+    font-family: "Racing Sans One", sans-serif;
+    font-weight: 0;
+    font-style: normal;
+}
+.link:hover{
+    color: white;
+}
+.nav {
+    padding-top: 30px;
+    z-index: 20091;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid white; */
+}

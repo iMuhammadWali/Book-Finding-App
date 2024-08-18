@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import SlidingBar, {closeSlidingBar, openSlidingBar} from './slidingBar';
+import SlidingBar, { closeSlidingBar, openSlidingBar } from './slidingBar';
 import NavBar from './navBar';
 import './componentStyles/header.css'
 import { Link, useNavigate } from 'react-router-dom';
@@ -13,7 +13,7 @@ export default function Header() {
         if (window.innerWidth <= 455) {
             const logoImg = document.querySelector('.logo img');
             const input = document.querySelector('input');
-            if (logoImg.style.display === 'none'){
+            if (logoImg.style.display === 'none') {
                 logoImg.style.display = 'block';
                 input.style.display = 'none';
                 navigate(`/search/${query}`);
@@ -35,7 +35,7 @@ export default function Header() {
     return (
         <header >
             <Link className="logo" to="/">
-                <img src="/logo.png" alt=""/>
+                <img src="/logo.png" alt="" />
                 {/* BookWave */}
             </Link>
             <form className="search-bar">
@@ -50,13 +50,7 @@ export default function Header() {
                     search
                 </span>
             </form>
-            {/* <nav className="nav-bar">
-                <img onClick={openSlidingBar} src="/menu.png" alt="Menu" />
-                <li><Link to="/" className="li">Home</Link></li>
-                <li><Link to="/toRead" className="li">Readpile</Link></li>
-                <li><Link to="/completed" className="li">Completed</Link></li>
-            </nav> */}
-            <NavBar/>
+            <NavBar />
         </header>
     )
 }
