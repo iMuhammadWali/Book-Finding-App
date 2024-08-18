@@ -37,7 +37,7 @@ export default function SearchedBooks({setCurrBook}) {
         setTimeout(()=> {
 
             setIsLoading(false);
-        }, 1000);
+        }, 500);
 
     };
     useEffect(() => {
