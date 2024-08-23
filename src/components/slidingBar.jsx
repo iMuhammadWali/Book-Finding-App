@@ -32,7 +32,7 @@ function SlidingBar() {
             }} onClick={closeSlidingBar} >
             </div >
             <div className="bar" style={{
-                position: "fixed", height: "120%", width: "200px", zIndex: 2000, top: "0",
+                position: "fixed", height: "120%", width: "80%", zIndex: 2000, top: "0",
                 left: "-100%",
                 transition: "0.3s",
                 backgroundColor: "#222120",

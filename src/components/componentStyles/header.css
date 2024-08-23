@@ -124,32 +124,23 @@ nav li {
     .li {
         display: none;
     }
-    nav{
+
+    nav {
         position: absolute;
         width: auto;
         right: 12%;
         padding: 0 20px;
     }
-    nav img{
+
+    nav img {
         display: block;
         height: 30px;
     }
 }
 
 @media(max-width:550px) {
-    /* .logo {
-        height: 80px;
-        position: absolute;
-        left: 0;
-        margin: 0;
-        padding: 0 20px;
-        transition: width 0.3s ease, opacity 0.3s ease;
-        overflow: hidden;
-    } */
-    
     .logo img {
         height: 60px;
         margin-top: 10px;
     }
-
 }
