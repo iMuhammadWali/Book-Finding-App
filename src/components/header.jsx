@@ -14,9 +14,12 @@ export default function Header() {
         const logoImg = document.querySelector('.logo img');
         const input = document.querySelector('input');
         const searchBar = document.querySelector('.search-bar');
+        const menuImg = document.querySelector('nav img');
+        console.log(menuImg);
         if (isExpanded) {
             searchBar.style.width = "0%"
             logoImg.style.opacity = '1';
+            menuImg.style.opacity = '1';
             setTimeout(() => {
                 input.placeholder = "";
             }, 150);
@@ -27,6 +30,8 @@ export default function Header() {
             searchBar.style.width = "82%";
             input.placeholder = "Search for books...";
             logoImg.style.opacity = '0';
+            menuImg.style.opacity = '0';
+
             input.focus();
         }
         setIsExpanded(!isExpanded);
