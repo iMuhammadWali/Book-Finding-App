@@ -31,7 +31,6 @@ export default function Header() {
             input.placeholder = "Search for books...";
             logoImg.style.opacity = '0';
             menuImg.style.opacity = '0';
-
             input.focus();
         }
         setIsExpanded(!isExpanded);
