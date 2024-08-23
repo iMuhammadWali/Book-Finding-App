@@ -144,3 +144,9 @@ nav li {
         margin-top: 10px;
     }
 }
+
+@media(max-width:470px) {
+nav{
+    right: 15%;
+}
+}
