@@ -5,7 +5,7 @@ header {
     width: 100%;
     height: 80px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     transition: 0.5s;
     z-index: 1000;
@@ -26,49 +26,65 @@ header {
 
 .logo {
     height: 80px;
-    /* display: flex;
-    align-items: center; */
-    width: 184px;
+    position: absolute;
+    left: 0;
+    margin: 0;
+    padding: 0 20px;
+    transition: width 0.3s ease, opacity 0.3s ease;
+    overflow: hidden;
 }
 
 .logo img {
-    height: 80px;
-    width: 173px;
-    margin-left: 10px;
+    height: 70px;
+    margin-top: 5px;
+    margin-left: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .search-bar {
+    position: absolute;
     display: flex;
-    height: 40px;
-    width: 50%;
-    margin-left: 60px;
+    align-items: center;
+    height: 80px;
+    right: 10%;
+    width: 0%;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
 }
+
 input {
     height: 40px;
-    width: 80%;
-    padding: 0 20px;
-    margin-left: -20px;
+    padding: 0;
     box-sizing: border-box;
     border: none;
-    background-color: #2b2928;
-    transition: box-shadow 0.3s ease-in-out;
-    color: #9e9b99;;
-    margin-right: 0;
+    background-color: #222120;
+    transition: 0.3s ease-in-out;
+    color: #9e9b99;
+    ;
+    width: 100%;
+    padding: 0 20px;
+    border-radius: 3px;
+    border-bottom: 1px solid #807a78;
+
 }
 
 input:focus {
     border: none;
     outline: none;
     color: #9e9b99;
+    border-bottom: 1px solid #807a78;
 }
 
 .material-symbols-outlined {
+    /* position: fixed; */
+    right: 6%;
+    position: absolute;
     color: #ffffff;
     height: 40px;
     display: flex;
     align-items: center;
     padding: 0 10px;
-    background-color: #2b2928;
+    /* background-color: #2b2928; */
     cursor: pointer;
 }
 
@@ -103,31 +119,24 @@ nav li {
     color: white
 }
 
-@media(max-width:970px) {
-    .search-bar {
-        width: 70%;
-    }
+@media(max-width:750px) {
 
     .li {
         display: none;
     }
-
-    input {
-        width: 90%;
+    nav{
+        position: absolute;
+        width: auto;
+        right: 12%;
+        padding: 0 20px;
     }
-
-    nav {
-        justify-content: center;
-        width: 200px;
-    }
-
-    nav img {
+    nav img{
         display: block;
-        width: 40px;
-        height: 40px;
-        margin-left: 50px;
+        height: 30px;
     }
 }
+
+/* 
 
 @media(max-width:645px) {
 
@@ -181,4 +190,4 @@ nav li {
         width: 50px;
         margin-right: 20px;
     }
-}
+} */

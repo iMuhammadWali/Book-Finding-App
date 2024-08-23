@@ -7,24 +7,29 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export default function Header() {
     const [query, setQuery] = useState("");
+    const [isExpanded, setIsExpanded] = useState(false);
     const navigate = useNavigate();
 
     const handleSearchIconKeyPress = () => {
-        if (window.innerWidth <= 455) {
-            const logoImg = document.querySelector('.logo img');
-            const input = document.querySelector('input');
-            if (logoImg.style.display === 'none') {
-                logoImg.style.display = 'block';
-                input.style.display = 'none';
-                if (query)
-                    navigate(`/search/${query}`);
-            } else {
-                input.style.display = 'block';
-                logoImg.style.display = 'none';
-            }
+        const logoImg = document.querySelector('.logo img');
+        const input = document.querySelector('input');
+        const searchBar = document.querySelector('.search-bar');
+        if (isExpanded) {
+            searchBar.style.width = "0%"
+            logoImg.style.opacity = '1';
+            setTimeout(() => {
+                input.placeholder = "";
+            }, 150);
+
+            if (query)
+                navigate(`/search/${query}`);
         } else {
-            navigate(`/search/${query}`);
+            searchBar.style.width = "82%";
+            input.placeholder = "Search for books...";
+            logoImg.style.opacity = '0';
+            input.focus();
         }
+        setIsExpanded(!isExpanded);
     }
     const handleKeyPress = async (e) => {
         if (e.key === "Enter") {
@@ -39,6 +44,7 @@ export default function Header() {
                 <img src="/logo.png" alt="" />
                 {/* BookWave */}
             </Link>
+            <NavBar />
             <form className="search-bar">
                 <input type="text"
                     value={query}
@@ -46,12 +52,11 @@ export default function Header() {
                         setQuery(e.target.value)
                     }}
                     onKeyPress={handleKeyPress}
-                    placeholder="Search for books..." />
-                <span className="material-symbols-outlined" onClick={handleSearchIconKeyPress}>
-                    search
-                </span>
+                    placeholder="" />
             </form>
-            <NavBar />
+            <span className="material-symbols-outlined" onClick={handleSearchIconKeyPress}>
+                search
+            </span>
         </header>
     )
 }
