@@ -21,7 +21,7 @@ export default function DefaultBooks({ setCurrBook }) {
 
   const fetchBooks = async (query) => {
     try {
-      const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=7`);
+      const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=AIzaSyBnJuSKder628NvC8sCoWPH6JC70j9NfJs&maxResults=7`);
       const data = await response.json();
       const books = data.items || [];
       books.forEach(book => {

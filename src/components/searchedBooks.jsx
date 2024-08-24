@@ -14,7 +14,7 @@ export default function SearchedBooks({ setCurrBook }) {
     }, [pathname]);
     const searchBooks = async () => {
         try {
-            const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40`);
+            const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=AIzaSyBnJuSKder628NvC8sCoWPH6JC70j9NfJs&maxResults=40`);
             const data = await response.json();
             setBooks(data.items || []);
         }
