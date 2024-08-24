@@ -36,11 +36,14 @@ export default function Header() {
         setIsExpanded(!isExpanded);
     }
     const handleKeyPress = async (e) => {
+        // const input = document.querySelector('input');
         if (e.key === "Enter") {
             e.preventDefault();
             console.log(`${query} is asked for`);
             navigate(`/search/${query}`);
+            // input.blur();
         }
+
     }
     return (
         <header >
