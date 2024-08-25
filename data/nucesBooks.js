@@ -28,7 +28,7 @@ const NUCES_Books = [
       },
       description: "This is the first semester English book taught at FAST-NUCES Lahore and I am adding this description for testing purposes since this is the first book i am adding in this FAST Books Repo.",
       categories: [
-        "FAST-NUCES", "First Semester"
+        "First Semester"
       ]
     }
   },
