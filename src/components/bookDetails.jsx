@@ -31,7 +31,7 @@ function addNewLineAfterSomeWords(paragraph) {
 
 function BookInfo({ book }) {
     cKey = 1;
-    
+
     // Add fallback for the description
     const description = book.volumeInfo?.description;
     addNewLineAfterSomeWords(description);
@@ -156,6 +156,11 @@ function BookDetails({ book }) {
                             <div className="image">
                                 <img src={currentBook.volumeInfo?.imageLinks?.thumbnail || "/defaultCover.jpg"} alt="" />
                             </div>
+                            {currentBook.downloadLink ? (
+                                <div className="download">
+                                    <a href={currentBook.downloadLink}>Download PDF</a>
+                                </div>
+                            ) : (null)}
                         </div>
                         <BookInfo book={currentBook} />
                     </div>

@@ -30,7 +30,8 @@ const NUCES_Books = [
       categories: [
         "First Semester"
       ]
-    }
+    },
+    downloadLink: "https://ia601003.us.archive.org/30/items/modelsforwritersshortessaysforcompositionpdfdrive.com/Models%20for%20Writers_%20Short%20Essays%20for%20Composition%20%28%20PDFDrive.com%20%29.pdf" 
   },
 
 ];
