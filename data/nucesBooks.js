@@ -8,7 +8,7 @@ const checkImageExists = async (url) => {
     }
   };
 
-export const fetchBookCover =  (book) => {
+const fetchBookCover =  (book) => {
     book.cover = 0;
     const googleBooksThumbnail = book.volumeInfo?.imageLinks?.thumbnail;
     if (googleBooksThumbnail) {
@@ -17,3 +17,18 @@ export const fetchBookCover =  (book) => {
     }
     book.cover = "/defaultCover.jpg";
 };
+
+const NUCES_Books = [
+
+{
+  volumeInfo: {
+    title : "Model for writers",
+    imageLinks: {
+      thumbnail : "https://prod-cat-files.macmillan.cloud/MediaResources/Jackets/258W/9781319214722.jpg",
+      description : "This is the first semester English book taught at FAST-NUCES Lahore and I am adding this for testing purposes"
+    }
+  }
+},
+
+];
+export default NUCES_Books ;
