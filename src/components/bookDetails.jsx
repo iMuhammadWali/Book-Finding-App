@@ -118,9 +118,7 @@ function BookDetails({ book }) {
     // let currentBook = book;
 
     useEffect(() => {
-        // If no book is passed as a prop, fetch it
         if (!book || Object.keys(book).length === 0) {
-
             const fetchBook = async () => {
                 setIsLoading(true);
                 try {
@@ -137,14 +135,9 @@ function BookDetails({ book }) {
                     console.error('Failed to fetch book details:', error);
                 }
             };
-
             const storedBook = localStorage.getItem(`book-${title}`);
             if (storedBook) {
-                // console.log('hahahaha, why tff');
-                // console.log(JSON.parse(storedBook));
                 setCurrentBook(JSON.parse(storedBook));
-                localStorage.removeItem(`book-${title}`);
-                // console.log(currentBook);
             } else {
                 fetchBook();
             }
@@ -153,11 +146,14 @@ function BookDetails({ book }) {
             setCurrentBook(book)
         }
     }, [title, book]);
+
     const handleBeforeUnload = () => {
         if (currentBook) {
             localStorage.setItem(`book-${title}`, JSON.stringify(currentBook));
         }
+        alert('abc')
     };
+
     useEffect(() => {
         window.addEventListener('beforeunload', handleBeforeUnload);
         return () => {
@@ -183,6 +179,9 @@ function BookDetails({ book }) {
                             ) : (null)}
                         </div>
                         <BookInfo book={currentBook} />
+                        {
+                            localStorage.removeItem(`book-${title}`)// Remove the book from the local storage once it is loaded
+                        }
                     </div>
                 ) : (
                     // <p>No book details available</p>

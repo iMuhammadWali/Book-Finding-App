@@ -52,9 +52,9 @@ export default function SearchedBooks({ setCurrBook }) {
         setIsLoading(true);
         searchBooks();
         searchNucesBooks();
-        setTimeout(() => {
+        // setTimeout(() => {
             setIsLoading(false);
-        }, 1000);
+        // }, 1000);
     }, [query]);
 
     return (
