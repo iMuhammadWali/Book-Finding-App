@@ -71,7 +71,6 @@ export default function SearchedBooks({ setCurrBook }) {
                         setCurrBook={setCurrBook}
                         isNuces={true}
                     />): (null)}
-                    
                         <GroupOfBooks
                             key={2}
                             category={query}
@@ -79,6 +78,8 @@ export default function SearchedBooks({ setCurrBook }) {
                             isResult={true}
                             query={query}
                             setCurrBook={setCurrBook}
+                            isNuces={false}
+
                         />
                     
                 </>
