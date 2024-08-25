@@ -40,7 +40,7 @@
     border-radius: 25px;
     font-family: "Oswald", sans-serif;
     font-family: "Cinzel", serif;
-    height: 50px;
+    height: 40px;
     background-color: #1b1918;
 
     color: rgb(212, 212, 212);
@@ -215,9 +215,9 @@
         height: auto;
     }
 
-    .left a {
+    /* .left a {
         width: 70%;
-    }
+    } */
 
     .right {
         /* margin-top: 30px; */
