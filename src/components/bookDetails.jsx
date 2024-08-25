@@ -111,16 +111,17 @@ function BookInfo({ book }) {
 function BookDetails({ book }) {
     const [currentBook, setCurrentBook] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const { title } = useParams();
+    const { query } = useParams();
+    console.log(query)
+
     const { pathname } = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [pathname]);
-    // let currentBook = book;
 
-    function isNucesBook(){
+    function isNucesBook() {
         for (const book of NUCES_Books) {
-            if (book.volumeInfo?.title?.includes(title)) {
+            if (book.volumeInfo?.title?.includes(query)) {
                 setCurrentBook(book);
                 return true;
             }
@@ -131,27 +132,27 @@ function BookDetails({ book }) {
         if (!book || Object.keys(book).length === 0) {
             const fetchBook = async () => {
                 setIsLoading(true);
+                console.log(query);
                 try {
-                    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${title}`);
+                    // const response = await fetch(`https://www.googleapis.com/books/v1/volumes?
+                    //     q=${hasFirstThreeDigits(query)? "isbn": "" + query}`);
+                    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${query}`);
                     const data = await response.json();
                     if (data.items && data.items.length > 0) {
-                        // setBookAlt(data.items[0]);
                         setIsLoading(false);
                         setCurrentBook(data.items[0]);
                         console.log("currentBook is:", currentBook);
-                        // currentBook = 
+                    }
+                    else {
+                        setIsLoading(false);
+                        return (<span style={{color:"white", marginTop:"160px"}}>Book not Found</span>);
                     }
                 } catch (error) {
                     console.error('Failed to fetch book details:', error);
                 }
             };
-            const storedBook = localStorage.getItem(`book-${title}`);
-            if (isNucesBook(title)){
-                //the book is already set
+            if (isNucesBook()) {
                 console.log("Worked");
-            }
-            else if (storedBook) {
-                setCurrentBook(JSON.parse(storedBook));
             } else {
                 fetchBook();
             }
@@ -159,21 +160,8 @@ function BookDetails({ book }) {
         else {
             setCurrentBook(book)
         }
-    }, [title, book]);
+    }, [query, book]);
 
-    const handleBeforeUnload = () => {
-        if (currentBook) {
-            localStorage.setItem(`book-${title}`, JSON.stringify(currentBook));
-        }
-        alert('abc')
-    };
-
-    useEffect(() => {
-        window.addEventListener('beforeunload', handleBeforeUnload);
-        return () => {
-            window.removeEventListener('beforeunload', handleBeforeUnload);
-        };
-    }, [currentBook, title]);
 
     return (
         <div className="main-cont" style={{ color: "white" }}>
@@ -195,13 +183,10 @@ function BookDetails({ book }) {
                             ) : (null)}
                         </div>
                         <BookInfo book={currentBook} />
-                        {
-                            localStorage.removeItem(`book-${title}`)// Remove the book from the local storage once it is loaded
-                        }
                     </div>
                 ) : (
-                    // <p>No book details available</p>
-                    null
+                    <p>No book details available</p>
+                    // null
                 )
             )}
         </div>

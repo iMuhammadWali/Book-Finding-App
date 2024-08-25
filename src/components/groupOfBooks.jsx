@@ -37,6 +37,9 @@ const GroupOfBooks = ({ category, books, isResult, query, setCurrBook, isNuces =
     }, [left]);
 
     function getBookIdentifier(book) {
+        if (book.isNuces){
+            return book.volumeInfo.title;
+        }
         if (book.volumeInfo.industryIdentifiers) {
             const identifiers = book.volumeInfo.industryIdentifiers;
             const isbn13 = identifiers.find(id => id.type === 'ISBN_13')?.identifier;

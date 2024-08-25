@@ -38,16 +38,19 @@
 
 .left a {
     border-radius: 25px;
-    background-color: rgb(87, 87, 87);
+    /* background-color: rgb(87, 87, 87); */
     font-family: 'Courier New', Courier, monospace;
     font-family: "Inter", sans-serif;
     font-family: "Oswald", sans-serif;
     height: 50px;
-    border: 2px solid rgb(165, 165, 165);
+    /* border: 2px solid rgb(165, 165, 165); */
+    background-color: #1b1918;
+
     color: rgb(212, 212, 212);
     font-weight: 400;
     font-size: 19px;
-    box-shadow: 10px 10px 40px 10px black;
+    box-shadow: 10px 10px 20px 5px rgb(129, 129, 129);
+    /* box-shadow: -10px -10px 40px 10px white; */
     width: 80%;
     display: flex;
     justify-content: center;

@@ -19,7 +19,7 @@ function App() {
           <Route path='/' element={<DefaultBooks setCurrBook={setCurrBook} />} />
           <Route path='/search' element={<DefaultBooks setCurrBook={setCurrBook} />} />
           <Route path='/search/:query' element={<SearchedBooks setCurrBook={setCurrBook} />} />
-          <Route path='/details/:title' element={<BookDetails book={currBook}/>} />
+          <Route path='/details/:query' element={<BookDetails book={currBook}/>} />
         </Routes>
       </BrowserRouter>
     </div >
