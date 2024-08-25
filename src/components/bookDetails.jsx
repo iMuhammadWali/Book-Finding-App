@@ -145,7 +145,6 @@ function BookDetails({ book }) {
                     }
                     else {
                         setIsLoading(false);
-                        return (<span style={{color:"white", marginTop:"160px"}}>Book not Found</span>);
                     }
                 } catch (error) {
                     console.error('Failed to fetch book details:', error);
@@ -177,7 +176,7 @@ function BookDetails({ book }) {
                             {currentBook.downloadLink ? (
                                 <div className="download">
                                     <a href={currentBook.downloadLink}>Download PDF</a>
-                                    {currentBook.solutionLink ? (<a href={currentBook.downloadLink}>Download Solution Manual</a>
+                                    {currentBook.solutionLink ? (<a href={currentBook.downloadLink}>Solution Manual</a>
                                     ) : (null)}
                                 </div>
                             ) : (null)}
