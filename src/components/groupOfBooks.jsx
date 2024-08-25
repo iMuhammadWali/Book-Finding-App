@@ -5,7 +5,10 @@ import '/src/App.css';
 const GroupOfBooks = ({ category, books, isResult, query, setCurrBook, isNuces }) => {
     const [left, setLeft] = useState(0);
     const categoryRef = useRef(null);
-    const margin = isNuces? "20px" : "120px";
+    let margin = "20px";
+    if (isNuces) margin = "120px";
+    console.log(margin, 'is the margin of search results');
+
     useEffect(() => {
         if (books.length > 0) {
             const firstBook = document.querySelector('.book');
