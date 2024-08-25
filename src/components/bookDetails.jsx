@@ -120,7 +120,7 @@ function BookDetails({ book }) {
     useEffect(() => {
         // If no book is passed as a prop, fetch it
         if (!book || Object.keys(book).length === 0) {
-            console.log("Haahaa")
+
             const fetchBook = async () => {
                 setIsLoading(true);
                 try {
@@ -129,7 +129,7 @@ function BookDetails({ book }) {
                     if (data.items && data.items.length > 0) {
                         // setBookAlt(data.items[0]);
                         setIsLoading(false);
-                        setCurrentBook(data.items[0])
+                        setCurrentBook(data.items[0]);
                         console.log("currentBook is:", currentBook);
                         // currentBook = 
                     }
@@ -137,13 +137,33 @@ function BookDetails({ book }) {
                     console.error('Failed to fetch book details:', error);
                 }
             };
-            fetchBook();
+
+            const storedBook = localStorage.getItem(`book-${title}`);
+            if (storedBook) {
+                // console.log('hahahaha, why tff');
+                // console.log(JSON.parse(storedBook));
+                setCurrentBook(JSON.parse(storedBook));
+                localStorage.removeItem(`book-${title}`);
+                // console.log(currentBook);
+            } else {
+                fetchBook();
+            }
         }
         else {
             setCurrentBook(book)
         }
     }, [title, book]);
-
+    const handleBeforeUnload = () => {
+        if (currentBook) {
+            localStorage.setItem(`book-${title}`, JSON.stringify(currentBook));
+        }
+    };
+    useEffect(() => {
+        window.addEventListener('beforeunload', handleBeforeUnload);
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+        };
+    }, [currentBook, title]);
 
     return (
         <div className="main-cont" style={{ color: "white" }}>
@@ -165,7 +185,8 @@ function BookDetails({ book }) {
                         <BookInfo book={currentBook} />
                     </div>
                 ) : (
-                    <p>No book details available</p>
+                    // <p>No book details available</p>
+                    null
                 )
             )}
         </div>
