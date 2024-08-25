@@ -3,6 +3,7 @@ import { MoonLoader } from 'react-spinners';
 import { Link, useParams } from 'react-router-dom';
 import './componentStyles/bookDetails.css';
 import { useLocation } from 'react-router-dom';
+import NUCES_Books from '../../data/nucesBooks';
 
 let paragraphOne = '';
 let paragraphTwo = '';
@@ -117,6 +118,15 @@ function BookDetails({ book }) {
     }, [pathname]);
     // let currentBook = book;
 
+    function isNucesBook(){
+        for (const book of NUCES_Books) {
+            if (book.volumeInfo?.title?.includes(title)) {
+                setCurrentBook(book);
+                return true;
+            }
+        }
+        return false;
+    }
     useEffect(() => {
         if (!book || Object.keys(book).length === 0) {
             const fetchBook = async () => {
@@ -136,7 +146,11 @@ function BookDetails({ book }) {
                 }
             };
             const storedBook = localStorage.getItem(`book-${title}`);
-            if (storedBook) {
+            if (isNucesBook(title)){
+                //the book is already set
+                console.log("Worked");
+            }
+            else if (storedBook) {
                 setCurrentBook(JSON.parse(storedBook));
             } else {
                 fetchBook();
@@ -175,6 +189,8 @@ function BookDetails({ book }) {
                             {currentBook.downloadLink ? (
                                 <div className="download">
                                     <a href={currentBook.downloadLink}>Download PDF</a>
+                                    {currentBook.solutionLink ? (<a href={currentBook.downloadLink}>Download Solution Manual</a>
+                                    ) : (null)}
                                 </div>
                             ) : (null)}
                         </div>
