@@ -7,6 +7,7 @@ import GroupOfBooks from './groupOfBooks';
 import '/src/App.css';
 
 const API_Key = import.meta.env.VITE_API_KEY;
+//I may add the function if current book is not passed a prop so that it searches for FAST Book's exact title first and if it is found, show 
 
 export default function SearchedBooks({ setCurrBook }) {
     const { query } = useParams();
