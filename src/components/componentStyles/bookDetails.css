@@ -40,12 +40,14 @@
     border-radius: 25px;
     font-family: "Oswald", sans-serif;
     font-family: "Cinzel", serif;
+    font-family: "Playfair Display", serif;
     height: 40px;
     background-color: #1b1918;
 
     color: rgb(212, 212, 212);
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: 300;
+    font-size: 15px;
+    letter-spacing: 0.5px;
     box-shadow: 
    -10px -8px 17px rgba(94, 94, 94, 0.5),    /* Blackish shadow (bottom-right) */
     7px 10px 17px rgba(0, 0, 0, 0.5),  /* White shadow (top-left) */
@@ -74,7 +76,10 @@
     height: 320px;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
-    box-shadow: 10px 10px 20px 10px rgb(7, 7, 7);
+    box-shadow: 
+    -10px -8px 17px rgba(94, 94, 94, 0.5),    /* Blackish shadow (bottom-right) */
+     7px 10px 17px rgba(0, 0, 0, 0.5),  /* White shadow (top-left) */
+     4px 4px 8px rgba(0, 0, 0, 0.5);  
 }
 
 .right {
