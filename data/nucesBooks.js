@@ -41,7 +41,7 @@ const NUCES_Books = [
       },
       description: "This is the third semester Linear book taught at FAST-NUCES Lahore.",
       categories: [
-        "First Semester"
+        "Third Semester"
       ]
     },
     downloadLink: "https://drive.google.com/file/d/1P9NqCEDALAavCs876RKnMi_Q7L3wBSa7/view?usp=sharing", 
