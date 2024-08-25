@@ -36,6 +36,16 @@ const GroupOfBooks = ({ category, books, isResult, query, setCurrBook, isNuces =
         }
     }, [left]);
 
+    function getBookIdentifier(book) {
+        if (book.volumeInfo.industryIdentifiers) {
+            const identifiers = book.volumeInfo.industryIdentifiers;
+            const isbn13 = identifiers.find(id => id.type === 'ISBN_13')?.identifier;
+            const isbn10 = identifiers.find(id => id.type === 'ISBN_10')?.identifier;
+            
+            return isbn13 || isbn10 || "9780061122415"; // Return a default value if neither is available
+        }
+        return  "9780061122415";// Return a default value if no identifiers are available
+    }
     return (
         <div className="category" key={category}>
             {!isResult ? (
@@ -50,7 +60,7 @@ const GroupOfBooks = ({ category, books, isResult, query, setCurrBook, isNuces =
                     {books.map((book) => (
                         <Link style={{
                             textDecoration: 'none'
-                        }} to={`/details/${book.volumeInfo.title}`}
+                        }} to={`/details/${getBookIdentifier(book)}`}
                             key={book.id}
                             className='book'
                             onClick={() => {
