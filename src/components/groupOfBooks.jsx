@@ -45,9 +45,9 @@ const GroupOfBooks = ({ category, books, isResult, query, setCurrBook, isNuces =
             const isbn13 = identifiers.find(id => id.type === 'ISBN_13')?.identifier;
             const isbn10 = identifiers.find(id => id.type === 'ISBN_10')?.identifier;
             
-            return isbn13 || isbn10 || "9780061122415"; // Return a default value if neither is available
+            return isbn13 || isbn10 || null; // Return a default value if neither is available
         }
-        return  "9780061122415";// Return a default value if no identifiers are available
+        return  null;// Return a default value if no identifiers are available
     }
     return (
         <div className="category" key={category}>
