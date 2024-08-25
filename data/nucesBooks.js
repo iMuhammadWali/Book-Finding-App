@@ -1,34 +1,37 @@
 
 const checkImageExists = async (url) => {
-    try {
-      const response = await fetch(url, { method: 'HEAD' });
-      return response.ok;
-    } catch (e) {
-      return false;
-    }
-  };
+  try {
+    const response = await fetch(url, { method: 'HEAD' });
+    return response.ok;
+  } catch (e) {
+    return false;
+  }
+};
 
-const fetchBookCover =  (book) => {
-    book.cover = 0;
-    const googleBooksThumbnail = book.volumeInfo?.imageLinks?.thumbnail;
-    if (googleBooksThumbnail) {
-        book.cover = googleBooksThumbnail;
-        return;
-    }
-    book.cover = "/defaultCover.jpg";
+const fetchBookCover = (book) => {
+  book.cover = 0;
+  const googleBooksThumbnail = book.volumeInfo?.imageLinks?.thumbnail;
+  if (googleBooksThumbnail) {
+    book.cover = googleBooksThumbnail;
+    return;
+  }
+  book.cover = "/defaultCover.jpg";
 };
 
 const NUCES_Books = [
 
-{
-  volumeInfo: {
-    title : "Model for writers",
-    imageLinks: {
-      thumbnail : "https://prod-cat-files.macmillan.cloud/MediaResources/Jackets/258W/9781319214722.jpg",
-      description : "This is the first semester English book taught at FAST-NUCES Lahore and I am adding this for testing purposes"
+  {
+    volumeInfo: {
+      title: "Model for writers",
+      imageLinks: {
+        thumbnail: "https://prod-cat-files.macmillan.cloud/MediaResources/Jackets/258W/9781319214722.jpg",
+      },
+      description: "This is the first semester English book taught at FAST-NUCES Lahore and I am adding this description for testing purposes since this is the first book i am adding in this FAST Books Repo.",
+      categories: [
+        "FAST-NUCES", "First Semester"
+      ]
     }
-  }
-},
+  },
 
 ];
-export default NUCES_Books ;
+export default NUCES_Books;
