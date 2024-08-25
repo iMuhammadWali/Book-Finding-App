@@ -61,27 +61,33 @@ export default function SearchedBooks({ setCurrBook }) {
         <div >
             {isLoading ? (<div className="loader"><MoonLoader color="#ffffff" size={30}
             /> </div>) : (
-                <>{(nucesBooks.length > 0) ? (
+                <>
+                    {nucesBooks.length > 0 ? (
+                        <>
+                            {console.log('Rendering GroupOfBooks with isNuces = true')}
+                            <GroupOfBooks
+                                key={1}
+                                category={query}
+                                books={nucesBooks}
+                                isResult={true}
+                                query={query}
+                                setCurrBook={setCurrBook}
+                                isNuces={true}
+                                isFAST= {true}
+                            />
+                        </>
+                    ) : null}
+                    {console.log('Rendering GroupOfBooks with isNuces = false')}
                     <GroupOfBooks
-                        key={1}
+                        key={2}
                         category={query}
-                        books={nucesBooks}
+                        books={books}
                         isResult={true}
                         query={query}
                         setCurrBook={setCurrBook}
-                        isNuces={true}
-                    />): (null)}
-                        <GroupOfBooks
-                            key={2}
-                            category={query}
-                            books={books}
-                            isResult={true}
-                            query={query}
-                            setCurrBook={setCurrBook}
-                            isNuces={false}
-
-                        />
-                    
+                        isNuces={(nucesBooks.length > 0)}
+                        isFAST= {false}
+                    />
                 </>
             )}
         </div>
