@@ -19,7 +19,7 @@ const fetchBookCover = (book) => {
 };
 
 const NUCES_Books = [
-
+  //1
   {
     volumeInfo: {
       title: "Model for writers - 12th Edition",
@@ -35,6 +35,7 @@ const NUCES_Books = [
     isNuces: true
 
   },
+  //2
   {
     volumeInfo: {
       title: "Elementary Linear Algebra - 14th Edition",
@@ -48,6 +49,68 @@ const NUCES_Books = [
     },
     downloadLink: "https://drive.google.com/file/d/1P9NqCEDALAavCs876RKnMi_Q7L3wBSa7/view?usp=sharing", 
     solutionLink: "https://drive.google.com/file/d/1dZ1ptQ36eGfVqYol8i4q0ubcXmqT48Sf/view?usp=sharing",
+    isNuces: true
+  },
+  //2
+  {
+    volumeInfo: {
+      title: "Elementary Linear Algebra - 14th Edition",
+      imageLinks: {
+        thumbnail: "https://m.media-amazon.com/images/I/61JRg8KIRqL._SY425_.jpg",
+      },
+      description: "This is the third semester Linear book taught at FAST-NUCES Lahore.",
+      categories: [
+        "Third Semester"
+      ]
+    },
+    downloadLink: "https://drive.google.com/file/d/1P9NqCEDALAavCs876RKnMi_Q7L3wBSa7/view?usp=sharing", 
+    solutionLink: "https://drive.google.com/file/d/1dZ1ptQ36eGfVqYol8i4q0ubcXmqT48Sf/view?usp=sharing",
+    isNuces: true
+  },
+  //3
+  {
+    volumeInfo: {
+      title: "Thomas Calculus - 14th Edition",
+      imageLinks: {
+        thumbnail: "https://cdn.numerade.com/books/9780134438986.jpg",
+      },
+      description: "This is the first semester book taught at FAST-NUCES Lahore for the course Calculus and Analytical Geometry and for the second semester course MultiVariable Calculus as well.",
+      categories: [
+        "First Semester"
+      ]
+    },
+    downloadLink: "https://drive.google.com/file/d/10fRNRMM5IFa4sQmr3QJua8Z0uiFIdK-_/view?usp=drive_link", 
+    solutionLink: "https://drive.google.com/file/d/10qeYnjtdn56EOo4A1jwGANTStHtkfuOf/view?usp=drive_link",
+    isNuces: true
+  },
+  //4
+  {
+    volumeInfo: {
+      title: "C++ How to program - Global Edition",
+      imageLinks: {
+        thumbnail: "https://deitel.com/wp-content/uploads/2020/01/c-plus-plus-how-to-program-10e.jpg",
+      },
+      description: "This is the first semester book taught at FAST-NUCES Lahore for the Programming Fundamentalas course.",
+      categories: [
+        "First Semester"
+      ]
+    },
+    downloadLink: "https://drive.google.com/file/d/1m6R8rPdINWeoxmArneybliYGzinNVC0a/view?usp=sharing", 
+    isNuces: true
+  },
+  //
+  {
+    volumeInfo: {
+      title: "Islamiat Notes - English",
+      imageLinks: {
+        thumbnail: "/defaultNucesCover.png",
+      },
+      description: "Notes of Islamiat course taught in the first semester at FAST-NUCES.",
+      categories: [
+        "First Semester"
+      ]
+    },
+    downloadLink: "https://drive.google.com/file/d/17GepoinEGBWnBnr9M5CW2uL71eXeXY6D/view?usp=sharing", 
     isNuces: true
   },
 
