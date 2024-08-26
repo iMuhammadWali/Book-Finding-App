@@ -98,7 +98,7 @@ const NUCES_Books = [
     downloadLink: "https://drive.google.com/file/d/1m6R8rPdINWeoxmArneybliYGzinNVC0a/view?usp=sharing", 
     isNuces: true
   },
-  //
+  //5
   {
     volumeInfo: {
       title: "Islamiat Notes - English",
@@ -111,6 +111,22 @@ const NUCES_Books = [
       ]
     },
     downloadLink: "https://drive.google.com/file/d/17GepoinEGBWnBnr9M5CW2uL71eXeXY6D/view?usp=sharing", 
+    isNuces: true
+  },
+  //6
+  {
+    volumeInfo: {
+      title: "Applied Physics - 10th Edition",
+      imageLinks: {
+        thumbnail: "https://m.media-amazon.com/images/I/61PJzaghcSL._SX342_SY445_.jpg",
+      },
+      description: "Applied Physics Books taught in the first semester at FAST-NUCES with its solution manual.",
+      categories: [
+        "First Semester"
+      ]
+    },
+    downloadLink: "https://drive.google.com/file/d/1i7UTEQHQR62BMYpcZ5weV9hesbdU2i51/view?usp=sharing", 
+    solutionLink: "https://drive.google.com/file/d/1iR_TrWQHCP_gbmrGnW-4uqtc65jfoV9h/view?usp=sharing",
     isNuces: true
   },
 
