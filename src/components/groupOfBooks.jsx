@@ -6,15 +6,15 @@ const GroupOfBooks = ({ category, books, isResult, query, setCurrBook, isNuces =
     const [left, setLeft] = useState(0);
     const categoryRef = useRef(null);
     let margin = "0px";
-    
+
     if (isNuces) {
         margin = "0px";
     }
-    else{
+    else {
         margin = "120px"
         // console.log("is Nuces false");
-    }  
-        
+    }
+
 
     useEffect(() => {
         if (books.length > 0) {
@@ -34,17 +34,17 @@ const GroupOfBooks = ({ category, books, isResult, query, setCurrBook, isNuces =
     }, [left]);
 
     function getBookIdentifier(book) {
-        if (book.isNuces){
+        if (book.isNuces) {
             return book.volumeInfo.title;
         }
         if (book.volumeInfo.industryIdentifiers) {
             const identifiers = book.volumeInfo.industryIdentifiers;
             const isbn13 = identifiers.find(id => id.type === 'ISBN_13')?.identifier;
             const isbn10 = identifiers.find(id => id.type === 'ISBN_10')?.identifier;
-            
+
             return isbn13 || isbn10 || null; // Return a default value if neither is available
         }
-        return  null;// Return a default value if no identifiers are available
+        return null;// Return a default value if no identifiers are available
     }
     return (
         <div className="category" key={category}>
@@ -52,26 +52,23 @@ const GroupOfBooks = ({ category, books, isResult, query, setCurrBook, isNuces =
                 <Link to={`/search/subject:${category}`} id="category" ref={categoryRef} >{category}</Link>
             ) : (isFAST ? (
                 <span className="results" style={{ marginTop: "120px" }}>FAST-NUCES Books</span>
-            ) : (<span className="results" style={{ marginTop: isNuces? "0px": "120px" }}>Search Results for "{query}"</span>)
+            ) : (<span className="results" style={{ marginTop: isNuces ? "0px" : "120px" }}>Search Results for "{query}"</span>)
             )}
-            {/* {(books.length > 0) ? ( */}
-                <div className='sub-container' key={category}>
-
-                    {books.map((book) => (
-                        <Link style={{
-                            textDecoration: 'none'
-                        }} to={`/details/${getBookIdentifier(book)}`}
-                            key={book.id}
-                            className='book'
-                            onClick={() => {
-                                setCurrBook(book);
-                            }}>
-                            <img src={book.volumeInfo?.imageLinks?.thumbnail || "/defaultCover.jpg"} />
-                            <span id="title">{book.volumeInfo.title}</span>
-                        </Link>
-                    ))}
-                </div>
-                {/* ) : (<span>No Nuces Book Found</span>)} */}
+            <div className='sub-container' key={category}>
+                {books.map((book) => (
+                    <Link style={{
+                        textDecoration: 'none'
+                    }} to={`/details/${getBookIdentifier(book)}`}
+                        key={book.id}
+                        className='book'
+                        onClick={() => {
+                            setCurrBook(book);
+                        }}>
+                        <img src={book.volumeInfo?.imageLinks?.thumbnail || "/defaultCover.jpg"} />
+                        <span id="title">{book.volumeInfo.title}</span>
+                    </Link>
+                ))}
+            </div>
         </div>
     )
 };
