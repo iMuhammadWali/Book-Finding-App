@@ -9,13 +9,10 @@ const GroupOfBooks = ({ category, books, isResult, query, setCurrBook, isNuces =
     
     if (isNuces) {
         margin = "0px";
-        console.log("is Nuces true");
-        console.log("is Nuces true so margin is ", margin);
-        
     }
     else{
         margin = "120px"
-        console.log("is Nuces false");
+        // console.log("is Nuces false");
     }  
         
 

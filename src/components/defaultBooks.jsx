@@ -63,7 +63,7 @@ export default function DefaultBooks({ setCurrBook }) {
   }, []);
 
   useEffect(() => {
-    if (books.length > 0) {
+    if (books.length > 0 && !localStorage.getItem('defaultBooks')) {
       localStorage.setItem('defaultBooks', JSON.stringify(books));
       console.log(books, 'books are set in the local storage');
     }
