@@ -44,6 +44,7 @@ export default function DefaultBooks({ setCurrBook }) {
     const responses = await Promise.all(promises);
     setBooks(responses.flat());
     localStorage.setItem('defaultBooks', JSON.stringify(books));
+    console.log(JSON.parse(localStorage.getItem('defaultBooks')), 'books are stored in the local storage');
   };
 
   useEffect(() => {
@@ -53,7 +54,7 @@ export default function DefaultBooks({ setCurrBook }) {
       fetchAllBooks(); 
     else {
       setBooks(localBooks);
-      console.log("Books are fetched locally Haha ")
+      console.log("Books are fetched locally noi")
     }
   }, []);
 
