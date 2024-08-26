@@ -44,22 +44,30 @@ export default function DefaultBooks({ setCurrBook }) {
     const responses = await Promise.all(promises);
     setBooks(responses.flat());
     // Directly store the books in local storage
-    localStorage.setItem('defaultBooks', JSON.stringify(books));
+    // localStorage.setItem('defaultBooks', JSON.stringify(books));
 
     // Logs for verification
-    console.log(JSON.parse(localStorage.getItem('defaultBooks')), 'books are set in the local storage')
+    // console.log(JSON.parse(localStorage.getItem('defaultBooks')), 'books are set in the local storage')
     // console.log(books, 'books are stored in the local storage');
   };
 
   useEffect(() => {
     const localBooks = JSON.parse(localStorage.getItem('defaultBooks'));
-    if (localBooks.length <= 0)
+    
+    if (!localBooks || localBooks.length <= 0)
       fetchAllBooks();
     else {
       setBooks(localBooks);
       console.log("Books are fetched locally noi")
     }
   }, []);
+
+  useEffect(() => {
+    if (books.length > 0) {
+      localStorage.setItem('defaultBooks', JSON.stringify(books));
+      console.log(books, 'books are set in the local storage');
+    }
+  }, [books]);
 
   useEffect(() => {
     const grouped = Object.keys(queries).reduce((acc, category) => {
