@@ -47,14 +47,12 @@ export default function DefaultBooks({ setCurrBook }) {
     localStorage.setItem('defaultBooks', JSON.stringify(books));
 
     // Logs for verification
-    // console.log(JSON.parse(localStorage.getItem('defaultBooks')), 'books are s')
+    console.log(JSON.parse(localStorage.getItem('defaultBooks')), 'books are set in the local storage')
     // console.log(books, 'books are stored in the local storage');
   };
 
   useEffect(() => {
-    // localStorage.removeItem('defaultBooks')
     const localBooks = JSON.parse(localStorage.getItem('defaultBooks'));
-    // const localBooks = [];
     if (localBooks.length <= 0)
       fetchAllBooks();
     else {
