@@ -49,7 +49,7 @@ export default function DefaultBooks({ setCurrBook }) {
   useEffect(() => {
     // localStorage.removeItem('defaultBooks')
     const localBooks = JSON.parse(localStorage.getItem('defaultBooks'));
-    if (!localBooks)
+    if (localBooks.length <= 0)
       fetchAllBooks(); 
     else {
       setBooks(localBooks);
