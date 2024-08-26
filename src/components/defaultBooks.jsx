@@ -8,6 +8,7 @@ const API_Key = import.meta.env.VITE_API_KEY;
 export default function DefaultBooks({ setCurrBook }) {
   const [books, setBooks] = useState([]);
   const { pathname } = useLocation();
+  const [groupedBooks, setGroupedBooks] = useState([]);
   useEffect(() => {
     window.scrollTo(0, 0);
     console.log("Scrolled");
@@ -26,9 +27,11 @@ export default function DefaultBooks({ setCurrBook }) {
       const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=${API_Key}&maxResults=7`);
       const data = await response.json();
       const books = data.items || [];
+      console.log("books fetched");
       books.forEach(book => {
         book.category = query;
       });
+
       return books;
     } catch (e) {
       console.log(e);
@@ -40,18 +43,29 @@ export default function DefaultBooks({ setCurrBook }) {
     const promises = Object.values(queries).map(query => fetchBooks(query));
     const responses = await Promise.all(promises);
     setBooks(responses.flat());
+    localStorage.setItem('defaultBooks', JSON.stringify(books));
   };
 
   useEffect(() => {
-    fetchAllBooks();
+    // localStorage.removeItem('defaultBooks')
+    const localBooks = JSON.parse(localStorage.getItem('defaultBooks'));
+    if (!localBooks)
+      fetchAllBooks(); 
+    else {
+      setBooks(localBooks);
+      console.log("Books are fetched locally Haha ")
+    }
   }, []);
 
-  // Group books by category
-  const groupedBooks = Object.keys(queries).reduce((acc, category) => {
-    acc[category] = books.filter(book => book.category === queries[category]);
-    return acc;
-  }, {});
+  useEffect(() => {
+    const grouped = Object.keys(queries).reduce((acc, category) => {
+      acc[category] = books.filter(book => book.category === queries[category]);
+      return acc;
+    }, {});
+    setGroupedBooks(grouped);
+  }, [books])
 
+  // localStorage.setItem('defaultBooksTime', Date.now());
   return (
     <div className='main-container'>
       <span className="h1">Explore Different Genres</span>
