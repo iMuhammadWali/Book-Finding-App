@@ -5,7 +5,7 @@ import { MoonLoader } from 'react-spinners';
 import NUCES_Books from '../../data/nucesBooks';
 import GroupOfBooks from './groupOfBooks';
 import '/src/App.css';
-
+let gKey = 1;
 const API_Key = import.meta.env.VITE_API_KEY;
 //I may add the function if current book is not passed a prop so that it searches for FAST Book's exact title first and if it is found, show 
 
@@ -20,21 +20,24 @@ export default function SearchedBooks({ setCurrBook }) {
     }, [pathname]);
     const searchNucesBooks = () => {
         const fastBooks = new Set();
+        const queryLower = query.toLowerCase();
         // const queryWords = query.toLowerCase().split(' ');
 
         NUCES_Books.forEach(book => {
             const normalizedTitle = book.volumeInfo.title.toLowerCase();
-            const titleWords = normalizedTitle.split(' ');
-            titleWords.some(t => {  
-                if (query.includes(t)) {
-                    fastBooks.add(book);  
-                    return true;  
-                }
-                return false;
-            });
+            const categories = book.volumeInfo.categories || []; // Ensure categories exist
+
+            const titleMatches = normalizedTitle.includes(queryLower);
+            const categoryMatches = categories.some(category => category.toLowerCase().includes(queryLower));
+
+            // Add book if it matches either title or category
+            if (titleMatches || categoryMatches) {
+                fastBooks.add(book);
+            }
+
         });
 
-        setNucesBooks([...fastBooks]);  
+        setNucesBooks([...fastBooks]);
         console.log(nucesBooks);
     }
 
@@ -51,8 +54,8 @@ export default function SearchedBooks({ setCurrBook }) {
 
     useEffect(() => {
         setIsLoading(true);
-        searchBooks();
         searchNucesBooks();
+        searchBooks();
         setTimeout(() => {
             setIsLoading(false);
         }, 500);
@@ -67,27 +70,27 @@ export default function SearchedBooks({ setCurrBook }) {
                         <>
                             {console.log('Rendering GroupOfBooks with isNuces = true')}
                             <GroupOfBooks
-                                key={1}
+                                key={gKey++}
                                 category={query}
                                 books={nucesBooks}
                                 isResult={true}
                                 query={query}
                                 setCurrBook={setCurrBook}
                                 isNuces={true}
-                                isFAST= {true}
+                                isFAST={true}
                             />
                         </>
                     ) : null}
                     {console.log('Rendering GroupOfBooks with isNuces = false')}
                     <GroupOfBooks
-                        key={2}
+                        key={gKey++}
                         category={query}
                         books={books}
                         isResult={true}
                         query={query}
                         setCurrBook={setCurrBook}
                         isNuces={(nucesBooks.length > 0)}
-                        isFAST= {false}
+                        isFAST={false}
                     />
                 </>
             )}
