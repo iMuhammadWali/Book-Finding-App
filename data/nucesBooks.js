@@ -51,22 +51,6 @@ const NUCES_Books = [
     solutionLink: "https://drive.google.com/file/d/1dZ1ptQ36eGfVqYol8i4q0ubcXmqT48Sf/view?usp=sharing",
     isNuces: true
   },
-  //2
-  {
-    volumeInfo: {
-      title: "Elementary Linear Algebra - 14th Edition",
-      imageLinks: {
-        thumbnail: "https://m.media-amazon.com/images/I/61JRg8KIRqL._SY425_.jpg",
-      },
-      description: "This is the third semester Linear book taught at FAST-NUCES Lahore.",
-      categories: [
-        "Third Semester"
-      ]
-    },
-    downloadLink: "https://drive.google.com/file/d/1P9NqCEDALAavCs876RKnMi_Q7L3wBSa7/view?usp=sharing", 
-    solutionLink: "https://drive.google.com/file/d/1dZ1ptQ36eGfVqYol8i4q0ubcXmqT48Sf/view?usp=sharing",
-    isNuces: true
-  },
   //3
   {
     volumeInfo: {
@@ -114,6 +98,21 @@ const NUCES_Books = [
     isNuces: true
   },
   //6
+  {
+    volumeInfo: {
+      title: "Ideology and Constitution of Pakistan Notes - English",
+      imageLinks: {
+        thumbnail: "/defaultNucesCover.png",
+      },
+      description: "Notes of ICP course taught in the first semester at FAST-NUCES.",
+      categories: [
+        "First Semester"
+      ]
+    },
+    downloadLink: "https://drive.google.com/file/d/1eym-yFnEoCAytodXkBLyXoS6BdjLDs5J/view?usp=sharing", 
+    isNuces: true
+  },
+  //7
   {
     volumeInfo: {
       title: "Applied Physics - 10th Edition",

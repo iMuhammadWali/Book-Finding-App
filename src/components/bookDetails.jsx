@@ -8,6 +8,7 @@ import NUCES_Books from '../../data/nucesBooks';
 let paragraphOne = '';
 let paragraphTwo = '';
 let cKey = 1;
+const API_Key = import.meta.env.VITE_API_KEY;
 
 function getSingleCategory(category){
     return category.split('/')[0];
@@ -140,8 +141,8 @@ function BookDetails({ book }) {
                 try {
                     // const response = await fetch(`https://www.googleapis.com/books/v1/volumes?
                     //     q=${hasFirstThreeDigits(query)? "isbn": "" + query}`);
-                    const response = await fetch(`https://www.googleapis.com/books/v1/volumes/${query}`);
-                    console.log(`https://www.googleapis.com/books/v1/volumes/${query}`);
+                    const response = await fetch(`https://www.googleapis.com/books/v1/volumes/${query}?key=${API_Key}`);
+                    // console.log(`https://www.googleapis.com/books/v1/volumes/${query}`);
                     const data = await response.json();
                     if (data) {
                         setIsLoading(false);
