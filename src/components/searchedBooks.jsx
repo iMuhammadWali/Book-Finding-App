@@ -19,22 +19,22 @@ export default function SearchedBooks({ setCurrBook }) {
         window.scrollTo(0, 0);
     }, [pathname]);
     const searchNucesBooks = () => {
-        const fastBooks = new Set();  // Use Set to avoid duplicates
-        const queryWords = query.toLowerCase().split(' ');  // Split the query into words
+        const fastBooks = new Set();
+        // const queryWords = query.toLowerCase().split(' ');
 
         NUCES_Books.forEach(book => {
-            const normalizedTitle = book.volumeInfo.title.toLowerCase();  // Normalize the title
-
-            queryWords.some(q => {  // Use `some` to find any matching word
-                if (normalizedTitle.includes(q)) {
-                    fastBooks.add(book);  // Add the book if a match is found
-                    return true;  // Break the loop for this book
+            const normalizedTitle = book.volumeInfo.title.toLowerCase();
+            const titleWords = normalizedTitle.split(' ');
+            titleWords.some(t => {  
+                if (query.includes(t)) {
+                    fastBooks.add(book);  
+                    return true;  
                 }
                 return false;
             });
         });
 
-        setNucesBooks([...fastBooks]);  // Convert Set to Array before setting state
+        setNucesBooks([...fastBooks]);  
         console.log(nucesBooks);
     }
 
@@ -53,9 +53,9 @@ export default function SearchedBooks({ setCurrBook }) {
         setIsLoading(true);
         searchBooks();
         searchNucesBooks();
-        // setTimeout(() => {
+        setTimeout(() => {
             setIsLoading(false);
-        // }, 1000);
+        }, 500);
     }, [query]);
 
     return (

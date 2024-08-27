@@ -9,6 +9,9 @@ let paragraphOne = '';
 let paragraphTwo = '';
 let cKey = 1;
 
+function getSingleCategory(category){
+    return category.split('/')[0];
+}
 function addNewLineAfterSomeWords(paragraph) {
     paragraphOne = '';
     paragraphTwo = '';
@@ -92,13 +95,14 @@ function BookInfo({ book }) {
             </div>
             <div className="cats">
                 {book.volumeInfo?.categories?.length > 0 ? (
-                    book.volumeInfo.categories.map(category => (
+                    // book.volumeInfo.categories.map(category => (
                         <div key={cKey++} className="cat">
                             <Link style={{ textDecoration: "none", color: "white" }}>
-                                {category}
+                                {/* {category} */}
+                                {getSingleCategory(book.volumeInfo.categories[0])}
                             </Link>
                         </div>
-                    ))
+                    // ))
                 ) : (
                     <span>No categories available</span>
                 )}
@@ -112,7 +116,7 @@ function BookDetails({ book }) {
     const [currentBook, setCurrentBook] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const { query } = useParams();
-    console.log(query)
+    console.log(query);
 
     const { pathname } = useLocation();
     useEffect(() => {
@@ -136,11 +140,12 @@ function BookDetails({ book }) {
                 try {
                     // const response = await fetch(`https://www.googleapis.com/books/v1/volumes?
                     //     q=${hasFirstThreeDigits(query)? "isbn": "" + query}`);
-                    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${query}`);
+                    const response = await fetch(`https://www.googleapis.com/books/v1/volumes/${query}`);
+                    console.log(`https://www.googleapis.com/books/v1/volumes/${query}`);
                     const data = await response.json();
-                    if (data.items && data.items.length > 0) {
+                    if (data) {
                         setIsLoading(false);
-                        setCurrentBook(data.items[0]);
+                        setCurrentBook(data);
                         console.log("currentBook is:", currentBook);
                     }
                     else {

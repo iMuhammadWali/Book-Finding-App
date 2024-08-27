@@ -37,14 +37,15 @@ const GroupOfBooks = ({ category, books, isResult, query, setCurrBook, isNuces =
         if (book.isNuces) {
             return book.volumeInfo.title;
         }
-        if (book.volumeInfo.industryIdentifiers) {
-            const identifiers = book.volumeInfo.industryIdentifiers;
-            const isbn13 = identifiers.find(id => id.type === 'ISBN_13')?.identifier;
-            const isbn10 = identifiers.find(id => id.type === 'ISBN_10')?.identifier;
+        // if (book.volumeInfo.industryIdentifiers) {
+        //     const identifiers = book.volumeInfo.industryIdentifiers;
+        //     const isbn13 = identifiers.find(id => id.type === 'ISBN_13')?.identifier;
+        //     const isbn10 = identifiers.find(id => id.type === 'ISBN_10')?.identifier;
 
-            return isbn13 || isbn10 || null; // Return a default value if neither is available
-        }
-        return null;// Return a default value if no identifiers are available
+        //     return isbn13 || isbn10 || null; // Return a default value if neither is available
+        // }
+        // return null;// Return a default value if no identifiers are available
+        return book.id;
     }
     return (
         <div className="category" key={category}>
