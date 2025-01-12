@@ -22,33 +22,32 @@ const NUCES_Books = [
   //1
   {
     volumeInfo: {
-      title: "Model for writers - 12th Edition",
+      title: "Model for writers",
       imageLinks: {
         thumbnail: "https://prod-cat-files.macmillan.cloud/MediaResources/Jackets/258W/9781319214722.jpg",
       },
-      description: "This is the first semester English book taught at FAST-NUCES Lahore and I am adding this description for testing purposes since this is the first book i am adding in this FAST Books Repo.",
+      description: "No Description.",
       categories: [
         "First Semester"
       ]
     },
     downloadLink: "https://drive.google.com/file/d/10d9IICRyUxZkDT0mvp8C7A-BaPmRlXLT/view" ,
     isNuces: true
-
   },
   //2
   {
     volumeInfo: {
-      title: "Elementary Linear Algebra - 14th Edition",
+      title: "Elementary Linear Algebra - 12th Ed.",
       imageLinks: {
         thumbnail: "https://m.media-amazon.com/images/I/61JRg8KIRqL._SY425_.jpg",
       },
-      description: "This is the third semester Linear book taught at FAST-NUCES Lahore.",
+      description: "No Description.",
       categories: [
         "Third Semester"
       ]
     },
     downloadLink: "https://drive.google.com/file/d/1P9NqCEDALAavCs876RKnMi_Q7L3wBSa7/view?usp=sharing", 
-    solutionLink: "https://drive.google.com/file/d/1dZ1ptQ36eGfVqYol8i4q0ubcXmqT48Sf/view?usp=sharing",
+    solutionLink: "https://drive.google.com/file/d/1h_UMQ2nlkUK09889p19TUKpeSbLq5im1/view?usp=sharing",
     isNuces: true
   },
   //3
@@ -58,7 +57,7 @@ const NUCES_Books = [
       imageLinks: {
         thumbnail: "https://cdn.numerade.com/books/9780134438986.jpg",
       },
-      description: "This is the first semester book taught at FAST-NUCES Lahore for the course Calculus and Analytical Geometry and for the second semester course MultiVariable Calculus as well.",
+      description: "No Description.",
       categories: [
         "First Semester"
       ]
@@ -70,13 +69,14 @@ const NUCES_Books = [
   //4
   {
     volumeInfo: {
-      title: "C++ How to program - Global Edition",
+      title: "C++ How to program - 8th Ed.",
       imageLinks: {
         thumbnail: "https://deitel.com/wp-content/uploads/2020/01/c-plus-plus-how-to-program-10e.jpg",
       },
-      description: "This is the first semester book taught at FAST-NUCES Lahore for the Programming Fundamentalas course.",
+      description: "No Description.",
       categories: [
-        "First Semester"
+        "First Semester",
+        "Second Semester"
       ]
     },
     downloadLink: "https://drive.google.com/file/d/1m6R8rPdINWeoxmArneybliYGzinNVC0a/view?usp=sharing", 
@@ -89,9 +89,10 @@ const NUCES_Books = [
       imageLinks: {
         thumbnail: "/defaultNucesCover.png",
       },
-      description: "Notes of Islamiat course taught in the first semester at FAST-NUCES.",
+      description: "No Description.",
       categories: [
-        "First Semester"
+        "First Semester", 
+        "Second Semester"
       ]
     },
     downloadLink: "https://drive.google.com/file/d/17GepoinEGBWnBnr9M5CW2uL71eXeXY6D/view?usp=sharing", 
@@ -104,9 +105,10 @@ const NUCES_Books = [
       imageLinks: {
         thumbnail: "/defaultNucesCover.png",
       },
-      description: "Notes of ICP course taught in the first semester at FAST-NUCES.",
+      description: "No Description.",
       categories: [
-        "First Semester"
+        "First Semester",
+        "Second Semester"
       ]
     },
     downloadLink: "https://drive.google.com/file/d/1eym-yFnEoCAytodXkBLyXoS6BdjLDs5J/view?usp=sharing", 
@@ -115,11 +117,11 @@ const NUCES_Books = [
   //7
   {
     volumeInfo: {
-      title: "Applied Physics - 10th Edition",
+      title: "Applied Physics - 10th Ed.",
       imageLinks: {
         thumbnail: "https://m.media-amazon.com/images/I/61PJzaghcSL._SX342_SY445_.jpg",
       },
-      description: "Applied Physics Books taught in the first semester at FAST-NUCES with its solution manual.",
+      description: "No Description.",
       categories: [
         "First Semester"
       ]
@@ -129,5 +131,102 @@ const NUCES_Books = [
     isNuces: true
   },
 
+  // Resuming from here.
+  {
+    volumeInfo: {
+      title: "Logics and Computer Desgin- 5th Ed.",
+      imageLinks: {
+        thumbnail: "https://m.media-amazon.com/images/I/61PJzaghcSL._SX342_SY445_.jpg",
+      },
+      description: "No Description.",
+      categories: [
+        "Second Semester"
+      ]
+    },
+    downloadLink: "https://drive.google.com/file/d/10EAHqo0t26_f7wCjZZX6XUcBMMKGRUDv/view?usp=sharing", 
+    solutionLink: "https://drive.google.com/file/d/12NqepSEST4NqVZR6g-EfSgXzP_I0QFsu/view?usp=sharing",
+    isNuces: true
+  },
+  {
+    volumeInfo: {
+      title: "Differential Equations - 7th Ed.",
+      imageLinks: {
+        thumbnail: "https://m.media-amazon.com/images/I/51uprQ7q4YL._SX342_SY445_.jpg",
+      },
+      description: "No Description.",
+      categories: [
+        "Second Semester"
+      ]
+    },
+    downloadLink: "https://drive.google.com/drive/folders/1voEqI_BUmuKVRdAKb0Jva4htdYz8rxVF", 
+    solutionLink: "https://drive.google.com/drive/folders/1voEqI_BUmuKVRdAKb0Jva4htdYz8rxVF",
+    isNuces: true
+  },
+
+  {
+    volumeInfo: {
+      title: "Discrete Mathematics and Its Applications - 8th Ed.",
+      imageLinks: {
+        thumbnail: "https://m.media-amazon.com/images/I/61UWYvar6eL._SY425_.jpg",
+      },
+      description: "No Description.",
+      categories: [
+        "Third Semester"
+      ]
+    },
+    downloadLink: "https://drive.google.com/file/d/1pAbnBfh0mMD8mpEIA2kZzA7elPr3GWDT/view?usp=sharing",
+
+    solutionLink: "https://drive.google.com/file/d/12ML3MYjFGfSfH1xSKldilXuG5Rzavh2T/view?usp=sharing", // Even
+    solutionLink2: "https://drive.google.com/file/d/1MjMar-V1uwwdbSOBhPr_QAxNomMoopcM/view?usp=sharing", // Odd
+    isNuces: true
+  },
+  {
+    volumeInfo: {
+      title: "Applied Physics - 10th Ed.",
+      imageLinks: {
+        thumbnail: "https://m.media-amazon.com/images/I/61PJzaghcSL._SX342_SY445_.jpg",
+      },
+      description: "No Description.",
+      categories: [
+        "First Semester"
+      ]
+    },
+    downloadLink: "https://drive.google.com/file/d/1i7UTEQHQR62BMYpcZ5weV9hesbdU2i51/view?usp=sharing", 
+    solutionLink: "https://drive.google.com/file/d/1iR_TrWQHCP_gbmrGnW-4uqtc65jfoV9h/view?usp=sharing",
+    isNuces: true
+  },
+  {
+    volumeInfo: {
+      title: "Applied Physics - 10th Ed.",
+      imageLinks: {
+        thumbnail: "https://m.media-amazon.com/images/I/61PJzaghcSL._SX342_SY445_.jpg",
+      },
+      description: "No Description.",
+      categories: [
+        "First Semester"
+      ]
+    },
+    downloadLink: "https://drive.google.com/file/d/1i7UTEQHQR62BMYpcZ5weV9hesbdU2i51/view?usp=sharing", 
+    solutionLink: "https://drive.google.com/file/d/1iR_TrWQHCP_gbmrGnW-4uqtc65jfoV9h/view?usp=sharing",
+    isNuces: true
+  },
+  {
+    volumeInfo: {
+      title: "Applied Physics - 10th Ed.",
+      imageLinks: {
+        thumbnail: "https://m.media-amazon.com/images/I/61PJzaghcSL._SX342_SY445_.jpg",
+      },
+      description: "No Description.",
+      categories: [
+        "First Semester"
+      ]
+    },
+    downloadLink: "https://drive.google.com/file/d/1i7UTEQHQR62BMYpcZ5weV9hesbdU2i51/view?usp=sharing", 
+    solutionLink: "https://drive.google.com/file/d/1iR_TrWQHCP_gbmrGnW-4uqtc65jfoV9h/view?usp=sharing",
+    isNuces: true
+  },
+
+
+  
 ];
 export default NUCES_Books;

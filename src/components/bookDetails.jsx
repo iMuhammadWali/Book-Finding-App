@@ -139,10 +139,7 @@ function BookDetails({ book }) {
                 setIsLoading(true);
                 console.log(query);
                 try {
-                    // const response = await fetch(`https://www.googleapis.com/books/v1/volumes?
-                    //     q=${hasFirstThreeDigits(query)? "isbn": "" + query}`);
                     const response = await fetch(`https://www.googleapis.com/books/v1/volumes/${query}?key=${API_Key}`);
-                    // console.log(`https://www.googleapis.com/books/v1/volumes/${query}`);
                     const data = await response.json();
                     if (data) {
                         setIsLoading(false);
@@ -181,8 +178,10 @@ function BookDetails({ book }) {
                             </div>
                             {currentBook.downloadLink ? (
                                 <div className="download">
-                                    <a href={currentBook.downloadLink}>Download PDF</a>
-                                    {currentBook.solutionLink ? (<a href={currentBook.downloadLink}>Solution Manual</a>
+                                    <a key = "1" href={currentBook.downloadLink}>Download PDF</a>
+                                    {currentBook.solutionLink ? (<a href={currentBook.solutionLink}>Solution Manual</a>
+                                    ) : (null)}
+                                    {currentBook.solutionLink2 ? (<a href={currentBook.solutionLink2}>Odd Solution Manual</a>
                                     ) : (null)}
                                 </div>
                             ) : (null)}

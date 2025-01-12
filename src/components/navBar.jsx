@@ -12,6 +12,8 @@ function NavBar() {
             <li><Link to="/" className="li">Home</Link></li>
             <li><Link to="/toRead" className="li">Readpile</Link></li>
             <li><Link to="/completed" className="li">Completed</Link></li>
+            {/* <li><Link to="www.mhdwali.netlify.app" className="li">About me</Link></li> */}
+
         </nav>
     )
 }
