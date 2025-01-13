@@ -117,7 +117,7 @@ const NUCES_Books = [
   //7
   {
     volumeInfo: {
-      title: "Applied Physics - 10th Ed.",
+      title: "Fundamentals of Physics - 10th Ed.",
       imageLinks: {
         thumbnail: "https://m.media-amazon.com/images/I/61PJzaghcSL._SX342_SY445_.jpg",
       },
@@ -134,9 +134,9 @@ const NUCES_Books = [
   // Resuming from here.
   {
     volumeInfo: {
-      title: "Logics and Computer Desgin- 5th Ed.",
+      title: "Logics and Computer Desgin Fundamentals - 5th Ed.",
       imageLinks: {
-        thumbnail: "https://m.media-amazon.com/images/I/61PJzaghcSL._SX342_SY445_.jpg",
+        thumbnail: "https://m.media-amazon.com/images/I/91x5JUXODyL._SL1500_.jpg",
       },
       description: "No Description.",
       categories: [
@@ -182,51 +182,46 @@ const NUCES_Books = [
   },
   {
     volumeInfo: {
-      title: "Applied Physics - 10th Ed.",
+      title: "Fundamentals of Database Systems - 7th Ed.",
       imageLinks: {
-        thumbnail: "https://m.media-amazon.com/images/I/61PJzaghcSL._SX342_SY445_.jpg",
+        thumbnail: "https://m.media-amazon.com/images/I/71ocXCxUQVL._SL1500_.jpg",
       },
       description: "No Description.",
       categories: [
-        "First Semester"
+        "Fourth Semester"
       ]
     },
-    downloadLink: "https://drive.google.com/file/d/1i7UTEQHQR62BMYpcZ5weV9hesbdU2i51/view?usp=sharing", 
-    solutionLink: "https://drive.google.com/file/d/1iR_TrWQHCP_gbmrGnW-4uqtc65jfoV9h/view?usp=sharing",
+    downloadLink: "https://drive.google.com/file/d/1ZFsiL8b0rGiM4cjc1dWWQneIxCUHTZ6y/view?usp=sharing", 
     isNuces: true
   },
   {
     volumeInfo: {
-      title: "Applied Physics - 10th Ed.",
+      title: "Operating Systems Concepts - 10th Ed.",
       imageLinks: {
-        thumbnail: "https://m.media-amazon.com/images/I/61PJzaghcSL._SX342_SY445_.jpg",
+        thumbnail: "https://m.media-amazon.com/images/I/81SwKCia7VL._SY425_.jpg",
       },
       description: "No Description.",
       categories: [
-        "First Semester"
+        "Fourth Semester"
       ]
     },
-    downloadLink: "https://drive.google.com/file/d/1i7UTEQHQR62BMYpcZ5weV9hesbdU2i51/view?usp=sharing", 
-    solutionLink: "https://drive.google.com/file/d/1iR_TrWQHCP_gbmrGnW-4uqtc65jfoV9h/view?usp=sharing",
+    downloadLink: "https://drive.google.com/file/d/1eZG3sgEhmU-IuZ7h94IuV9JQbAAXuR_v/view?usp=sharing", 
     isNuces: true
-  },
+  },  
   {
     volumeInfo: {
-      title: "Applied Physics - 10th Ed.",
+      title: "Probability and Statistics for Engineers and Scientists - 9th Ed.",
       imageLinks: {
-        thumbnail: "https://m.media-amazon.com/images/I/61PJzaghcSL._SX342_SY445_.jpg",
+        thumbnail: "",
       },
       description: "No Description.",
       categories: [
-        "First Semester"
+        "Fourth Semester"
       ]
     },
-    downloadLink: "https://drive.google.com/file/d/1i7UTEQHQR62BMYpcZ5weV9hesbdU2i51/view?usp=sharing", 
-    solutionLink: "https://drive.google.com/file/d/1iR_TrWQHCP_gbmrGnW-4uqtc65jfoV9h/view?usp=sharing",
+    downloadLink: "https://drive.google.com/file/d/1ldpaMGmjJLo4EXPzb6pW57n0Rr6X2cro/view?usp=sharing",
+    solutionLink: "https://drive.google.com/file/d/1-v4LZLySB8t-MHtoCrQBQgxOTYsDfHCY/view?usp=sharing", 
     isNuces: true
-  },
-
-
-  
+  }, 
 ];
 export default NUCES_Books;
