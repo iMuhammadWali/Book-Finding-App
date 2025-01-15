@@ -125,18 +125,18 @@ function BookDetails({ book }) {
         window.scrollTo(0, 0);
     }, [pathname]);
 
-    // useEffect(() => {
-    //     if (currentBook) {
-    //         console.log("currentBook is:", currentBook);
-    //         const readPile = getReadPile();
-    //         if (readPile.length === 0) {
-    //             setIsInReadPile(false);
-    //             return;
-    //         }
-    //         const exists = readPile.some(item => item.id === currentBook.id);
-    //         setIsInReadPile(exists);
-    //     }
-    // }, [currentBook]);
+    useEffect(() => {
+        if (currentBook) {
+            console.log("currentBook is:", currentBook);
+            const readPile = getReadPile();
+            if (readPile === null) {
+                setIsInReadPile(false);
+                return;
+            }
+            const exists = readPile.some(item => item.id === currentBook.id);
+            setIsInReadPile(exists);
+        }
+    }, [currentBook]);
       
 
     function isNucesBook() {
