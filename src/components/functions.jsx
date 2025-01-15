@@ -15,7 +15,7 @@ export function setReadPile(x) {
 export function getCompleted() {
     let completed;
     try {
-        completed = JSON.parse(localStorage.getItem('completedlist'));
+        completed = JSON.parse(localStorage.getItem('completed'));
     } catch(error) {
         return [];
     } 

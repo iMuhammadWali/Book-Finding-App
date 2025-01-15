@@ -75,7 +75,7 @@ export default function DefaultBooks({ setCurrBook }) {
 
       {/* Display the Nuces Books first */}
       <GroupOfBooks
-          key={"Nuces"}
+          key="Nuces"
           category={"FAST-NUCES Books"}
           books={NUCES_Books}
           setCurrBook={setCurrBook}

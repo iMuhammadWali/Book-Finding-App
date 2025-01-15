@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react'
-import { getReadPile } from './functions'
+import { getCompleted } from './functions'
 import GroupOfBooks from './groupOfBooks'
 
-const ReadPile = ({ setCurrBook }) => {
+const Completed = ({ setCurrBook }) => {
     const [books, setBooks] = useState([])
 
     // Load books from localStorage on component mount
     useEffect(() => {
-        const readPile = getReadPile()
-        if (readPile === null)
+        const completed = getCompleted()
+        if (completed === null)
         {
             setBooks([]);
         }
         else
         {
-            setBooks(readPile)
+            setBooks(completed)
         } 
     }, [])
 
@@ -22,15 +22,15 @@ const ReadPile = ({ setCurrBook }) => {
         <div className='main-container'>
             {books.length ? (
                 <GroupOfBooks
-                    category="Read Pile"
+                    category="Completed :)"
                     books={books}
                     setCurrBook={setCurrBook}
                 />
             ) : (
-                <p>No books in the read pile yet!</p>
+                <p>No books in the Completed yet!</p>
             )}
         </div>
     )
 }
 
-export default ReadPile
+export default Completed

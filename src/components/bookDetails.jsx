@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import './componentStyles/bookDetails.css';
 import { useLocation } from 'react-router-dom';
 import NUCES_Books from '../../data/nucesBooks';
-import { addToReadPile, getReadPile, deletefromReadPile } from './functions';
+import { addToReadPile, getReadPile, deletefromReadPile, addtoCompleted, getCompleted, deletefromCompleted } from './functions';
 
 let paragraphOne = '';
 let paragraphTwo = '';
@@ -118,6 +118,8 @@ function BookDetails({ book }) {
     const [currentBook, setCurrentBook] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [isInReadPile, setIsInReadPile] = useState(false);
+    const [isInCompleted, setIsInCompleted] = useState(false);
+
     const { query } = useParams();
 
     const { pathname } = useLocation();
@@ -127,7 +129,6 @@ function BookDetails({ book }) {
 
     useEffect(() => {
         if (currentBook) {
-            console.log("currentBook is:", currentBook);
             const readPile = getReadPile();
             if (readPile === null) {
                 setIsInReadPile(false);
@@ -135,6 +136,14 @@ function BookDetails({ book }) {
             }
             const exists = readPile.some(item => item.id === currentBook.id);
             setIsInReadPile(exists);
+
+            const completed = getCompleted();
+            if (completed === null) {
+                setIsInCompleted(false);
+                return;
+            }
+            const existsCompleted = completed.some(item => item.id === currentBook.id);
+            setIsInCompleted(existsCompleted);
         }
     }, [currentBook]);
       
@@ -189,6 +198,17 @@ function BookDetails({ book }) {
         setIsInReadPile(false)
     }
 
+    const handleAddToCompleted = () => {
+        addtoCompleted(currentBook)
+        setIsInCompleted(true)
+    }
+
+    const handleRemoveFromCompleted = () => {
+        deletefromCompleted(currentBook)
+        setIsInCompleted(false)
+    }
+
+
     return (
         <div className="main-cont" style={{ color: "white" }}>
             {isLoading ? (
@@ -220,7 +240,17 @@ function BookDetails({ book }) {
                                         Add to Readpile
                                     </span>
                                 )}          
-                            <span className='temp'> Add to Completed </span>
+
+                                {/* Completed Button*/}
+                                {isInCompleted ? (
+                                    <span onClick={handleRemoveFromCompleted} className="temp">
+                                        Remove from Completed
+                                    </span>
+                                ) : (
+                                    <span onClick={handleAddToCompleted} className="temp">
+                                        Add to Completed
+                                    </span>
+                                )}  
                         </div>}
                         </div>
                         <BookInfo book={currentBook} />

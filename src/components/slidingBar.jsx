@@ -40,9 +40,9 @@ function SlidingBar() {
                 {/* <NavBar /> */}
                 {/* I can import the navbar component here but i prefer to do this to learn how this actually works */}
                 <div className="nav">
-                    <li><Link to="/" className="link">Home</Link></li>
-                    <li><Link to="/readPile" className="link">Readpile</Link></li>
-                    <li><Link to="/completed" className="link">Completed</Link></li>
+                    <li><Link to="/" className="link" onClick={()=> closeSlidingBar()}>Home</Link></li>
+                    <li><Link to="/readPile" className="link" onClick={()=> closeSlidingBar()}>Readpile</Link></li>
+                    <li><Link to="/completed" className="link" onClick={()=> closeSlidingBar()}>Completed</Link></li>
                 </div>
             </div>
         </>

@@ -50,12 +50,14 @@ const GroupOfBooks = ({ category, books, isResult, query, setCurrBook, isNuces =
                 <span className="results" style={{ marginTop: "120px" }}>FAST-NUCES Books</span>
             ) : (<span className="results" style={{ marginTop: isNuces ? "0px" : "120px" }}>Search Results for "{query}"</span>)
             )}
-            <div className='sub-container' key={category}>
+            <div className='sub-container'>
                 {books.map((book) => (
-                    <Link style={{
+                    <Link 
+                        style={{
                         textDecoration: 'none'
-                    }} to={`/details/${getBookIdentifier(book)}`}
-                        key={book.id}
+                        }} 
+                        to={`/details/${getBookIdentifier(book)}`}
+                        key={book.id} 
                         className='book'
                         onClick={() => {
                             setCurrBook(book);
