@@ -48,27 +48,12 @@ export function addtoCompleted(book) {
 export function deletefromReadPile(toDel) {
     let readPile = getReadPile()
     // Have to use bookID or name here but since both are strings, it will work. 
-    let newReadPile = readPile.filter(book => book.ID !== toDel.ID)
+    let newReadPile = readPile.filter(book => book.id !== toDel.id)
     setReadPile(newReadPile)
 }
 
 export function deletefromCompleted(toDel) {
     let completedlist = getCompleted()
-    let newCompleted = completedlist.filter(book => book.ID !== toDel.ID)
+    let newCompleted = completedlist.filter(book => book.id !== toDel.id)
     setCompleted(newCompleted)
-    // localStorage.setItem(movie.imdbID, null)
-}
-
-export function setRev(movie ,rev) {
-    localStorage.setItem(movie.imdbID, JSON.stringify(rev))
-}
-
-export function getRev(movie) {
-    let x;
-    try {
-        x = JSON.parse(localStorage.getItem(movie.imdbID))
-    } catch(error) {
-        return null
-    } 
-    return x
 }

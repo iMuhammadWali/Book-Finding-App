@@ -42,7 +42,7 @@ const GroupOfBooks = ({ category, books, isResult, query, setCurrBook, isNuces =
                         to={`/search/subject:${category}`} 
                         id="category" 
                         ref={categoryRef} 
-                        style={{ width: '300px' }} // Added inline style for width
+                        style={{ width: 'auto' }} // Added inline style for width
                     >
                         {category}
                     </Link>
