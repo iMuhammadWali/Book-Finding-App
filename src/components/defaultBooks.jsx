@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import '/src/App.css'
 import GroupOfBooks from "./groupOfBooks";
+import NUCES_Books from '../../data/nucesBooks';
 
 const API_Key = import.meta.env.VITE_API_KEY;
 
@@ -14,7 +15,7 @@ export default function DefaultBooks({ setCurrBook }) {
     console.log("Scrolled");
   }, [pathname]);
 
-  //I have to shuffle this object on every load (I have decided that i wont be doing it anymore)
+  //I have to shuffle this object on every load (I have decided that i wont be doing it anymore).
   const queries = {
     'Fantasy': 'subject:fantasy',
     'Mystery': 'subject:mystery',
@@ -43,12 +44,6 @@ export default function DefaultBooks({ setCurrBook }) {
     const promises = Object.values(queries).map(query => fetchBooks(query));
     const responses = await Promise.all(promises);
     setBooks(responses.flat());
-    // Directly store the books in local storage
-    // localStorage.setItem('defaultBooks', JSON.stringify(books));
-
-    // Logs for verification
-    // console.log(JSON.parse(localStorage.getItem('defaultBooks')), 'books are set in the local storage')
-    // console.log(books, 'books are stored in the local storage');
   };
 
   useEffect(() => {
@@ -58,14 +53,12 @@ export default function DefaultBooks({ setCurrBook }) {
       fetchAllBooks();
     else {
       setBooks(localBooks);
-      console.log("Books are fetched locally noi")
     }
   }, []);
 
   useEffect(() => {
     if (books.length > 0 && !localStorage.getItem('defaultBooks')) {
       localStorage.setItem('defaultBooks', JSON.stringify(books));
-      console.log(books, 'books are set in the local storage');
     }
   }, [books]);
 
@@ -77,16 +70,23 @@ export default function DefaultBooks({ setCurrBook }) {
     setGroupedBooks(grouped);
   }, [books])
 
-  // localStorage.setItem('defaultBooksTime', Date.now());
   return (
     <div className='main-container'>
+
+      {/* Display the Nuces Books first */}
+      <GroupOfBooks
+          key={"Nuces"}
+          category={"FAST-NUCES Books"}
+          books={NUCES_Books}
+          setCurrBook={setCurrBook}
+        />
       <span className="h1">Explore Different Genres</span>
       {Object.keys(groupedBooks).map(category => (
         <GroupOfBooks
           key={category}
           category={category}
           books={groupedBooks[category]}
-          setCurrBook={setCurrBook} // Ensure this prop is passed
+          setCurrBook={setCurrBook}
         />
       ))}
     </div>

@@ -6,9 +6,11 @@ import SlidingBar from './components/slidingBar'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import '/src/App.css'
 import Header from './components/header'
+import ReadPile from './components/readPile'
 
 function App() {
   const [currBook, setCurrBook] = useState({});
+  // const readpile
   return (
     <div style={{height: "auto"}}>
       <BrowserRouter>
@@ -20,6 +22,7 @@ function App() {
           <Route path='/search' element={<DefaultBooks setCurrBook={setCurrBook} />} />
           <Route path='/search/:query' element={<SearchedBooks setCurrBook={setCurrBook} />} />
           <Route path='/details/:query' element={<BookDetails book={currBook}/>} />
+          <Route path='/readPile' element={<ReadPile/>} />
         </Routes>
       </BrowserRouter>
     </div >

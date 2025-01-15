@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { MoonLoader } from 'react-spinners';
 import { Link, useParams } from 'react-router-dom';
 import './componentStyles/bookDetails.css';
 import { useLocation } from 'react-router-dom';
 import NUCES_Books from '../../data/nucesBooks';
+import { addToReadPile, getReadPile, deletefromReadPile } from './functions';
 
 let paragraphOne = '';
 let paragraphTwo = '';
 let cKey = 1;
+
 const API_Key = import.meta.env.VITE_API_KEY;
 
 function getSingleCategory(category){
@@ -48,9 +49,9 @@ function BookInfo({ book }) {
         let text = document.querySelector(".text");
 
         if (text.scrollHeight > text.clientHeight) {
-            readMoreButton.style.display = "block"; // Show "Read More" button
+            readMoreButton.style.display = "block"; 
         } else {
-            readMoreButton.style.display = "none"; // Hide "Read More" button if not needed
+            readMoreButton.style.display = "none";
         }
 
         readMoreButton.addEventListener("click", () => {
@@ -116,13 +117,23 @@ function BookInfo({ book }) {
 function BookDetails({ book }) {
     const [currentBook, setCurrentBook] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [isInReadPile, setIsInReadPile] = useState(false);
     const { query } = useParams();
-    console.log(query);
 
     const { pathname } = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [pathname]);
+
+    useEffect(() => {
+        if (currentBook) {
+            console.log("currentBook is:", currentBook);
+            const readPile = getReadPile();
+            const exists = readPile.some(item => item.id === currentBook.id);
+            setIsInReadPile(exists);
+        }
+    }, [currentBook]);
+      
 
     function isNucesBook() {
         for (const book of NUCES_Books) {
@@ -154,7 +165,7 @@ function BookDetails({ book }) {
                 }
             };
             if (isNucesBook()) {
-                console.log("Worked");
+                // Do nothing, else fetch the book.
             } else {
                 fetchBook();
             }
@@ -164,6 +175,15 @@ function BookDetails({ book }) {
         }
     }, [query, book]);
 
+    const handleAddToReadPile = () => {
+        addToReadPile(currentBook)
+        setIsInReadPile(true)
+    }
+
+    const handleRemoveFromReadPile = () => {
+        deletefromReadPile(currentBook)
+        setIsInReadPile(false)
+    }
 
     return (
         <div className="main-cont" style={{ color: "white" }}>
@@ -184,13 +204,26 @@ function BookDetails({ book }) {
                                     {currentBook.solutionLink2 ? (<a href={currentBook.solutionLink2}>Odd Solution Manual</a>
                                     ) : (null)}
                                 </div>
-                            ) : (null)}
+                            ) : 
+                            <div className="download">
+                                {/* Show the button according to the state of the book. */}
+                                {isInReadPile ? (
+                                    <span onClick={handleRemoveFromReadPile} className="temp">
+                                        Remove from Readpile
+                                    </span>
+                                ) : (
+                                    <span onClick={handleAddToReadPile} className="temp">
+                                        Add to Readpile
+                                    </span>
+                                )}          
+                            <span className='temp'> Add to Completed </span>
+                        </div>}
                         </div>
                         <BookInfo book={currentBook} />
                     </div>
                 ) : (
-                    <p>No book details available</p>
                     // null
+                    <p>No book details available</p>
                 )
             )}
         </div>

@@ -212,7 +212,7 @@ const NUCES_Books = [
     volumeInfo: {
       title: "Probability and Statistics for Engineers and Scientists - 9th Ed.",
       imageLinks: {
-        thumbnail: "",
+        thumbnail: "https://m.media-amazon.com/images/I/61cpY2rSudL._SY425_.jpg",
       },
       description: "No Description.",
       categories: [
