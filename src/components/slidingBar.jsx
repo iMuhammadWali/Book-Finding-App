@@ -43,6 +43,16 @@ function SlidingBar() {
                     <li><Link to="/" className="link" onClick={()=> closeSlidingBar()}>Home</Link></li>
                     <li><Link to="/readPile" className="link" onClick={()=> closeSlidingBar()}>Readpile</Link></li>
                     <li><Link to="/completed" className="link" onClick={()=> closeSlidingBar()}>Completed</Link></li>
+                    <li>
+                        <Link 
+                            to="https://mhdwali.netlify.app" 
+                            className="link" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                        >
+                            About Me
+                        </Link>
+                    </li>
                 </div>
             </div>
         </>
