@@ -196,6 +196,20 @@ const NUCES_Books = [
     solutionLink: "https://drive.google.com/file/d/1-v4LZLySB8t-MHtoCrQBQgxOTYsDfHCY/view?usp=sharing",
     isNuces: true,
   },
+  {
+    id: 14,
+    volumeInfo: {
+      title: "Statistics for Business and Economics - 13th Ed.",
+      imageLinks: {
+        thumbnail: "https://m.media-amazon.com/images/I/518fGr85eJL._SX342_SY445_.jpg",
+      },
+      description: "No Description.",
+      categories: ["Fourth Semester"],
+    },
+    downloadLink: "https://drive.google.com/file/d/1GFxxk3jqAtILAKjiWLgK1JCuvaHXI92d/view?usp=sharing",
+    // solutionLink: "https://drive.google.com/file/d/1-v4LZLySB8t-MHtoCrQBQgxOTYsDfHCY/view?usp=sharing",
+    isNuces: true,
+  },
 ];
 
 export default NUCES_Books;

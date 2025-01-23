@@ -37,10 +37,9 @@ function addNewLineAfterSomeWords(paragraph) {
 
 function BookInfo({ book }) {
     cKey = 1;
-
     // Add fallback for the description
     const description = book.volumeInfo?.description;
-    addNewLineAfterSomeWords(description);
+    //addNewLineAfterSomeWords(description);
 
     useEffect(() => {
         let readMoreButton = document.querySelector(".readMore");
@@ -88,23 +87,21 @@ function BookInfo({ book }) {
             <span className="vitals">Page count: {book.volumeInfo?.pageCount || "No page count available"}</span>
             <div className="description">
                 <div className="text">
-                    {paragraphOne} <br />
-                    <p>{/* Used for space */}</p>{paragraphTwo}
-                    <br />
+                    {/* {paragraphOne} <br /> */}
+                    {/* <p>Used for space</p>{paragraphTwo} */}
+                    {/* <br /> */}
+                    {description}
                 </div>
                 <span className="readMore">Read More</span>
                 <span className="showLess">Show Less</span>
             </div>
             <div className="cats">
                 {book.volumeInfo?.categories?.length > 0 ? (
-                    // book.volumeInfo.categories.map(category => (
                         <div key={cKey++} className="cat">
                             <Link style={{ textDecoration: "none", color: "white" }}>
-                                {/* {category} */}
                                 {getSingleCategory(book.volumeInfo.categories[0])}
                             </Link>
                         </div>
-                    // ))
                 ) : (
                     <span>No categories available</span>
                 )}
@@ -168,7 +165,7 @@ function BookDetails({ book }) {
                     if (data) {
                         setIsLoading(false);
                         setCurrentBook(data);
-                        console.log("currentBook is:", currentBook);
+                        // console.log("currentBook desc. is:", currentBook.volumeInfo.description);
                     }
                     else {
                         setIsLoading(false);
